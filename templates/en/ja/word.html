@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= @word_data['word'] %> - 単語詳細</title>
+    <script type="text/javascript" src="../../../common/word.js"></script>
+    <link rel="stylesheet" href="../../../common/word.css">
+  </head>
+  <body>
+    <div class="container">
+      <div class="header-section">
+	<h1 class="word-title"><%= @word_data['word'] %></h1>
+      </div>
+      <div class="priority-box">
+	<span class="priority"><%= @word_data['priority'] %></span>
+      </div>
+
+      <div class="pronounce-section">
+	<% if @word_data['pronunciation'].has_key?('ipa') %>
+	<div class="ipa"><%= @word_data['pronunciation']['ipa'] %></div>
+	<% end %>
+
+	<% if @word_data['pronunciation'].has_key?('ipa_uk') %>
+        <div class="ipa">(英)<%= @word_data['pronunciation']['ipa_uk'] %></div>
+	<% end %>
+
+	<% if @word_data['pronunciation'].has_key?('ipa_us') %>
+        <div class="ipa">(米)<%= @word_data['pronunciation']['ipa_us'] %></div>
+	<% end %>
+
+	<div class="syllable">
+          (<%= @word_data['pronunciation']['syllables'] %>)
+	</div>
+      </div>
+      
+      <section class="section">
+	<% @word_data['meanings'].each_with_index do |meaning, index| %>
+        <div class="meaning-card" onclick="meaning_clicked(this)">
+          <h3 class="meaning-title">
+	    <div class="number">
+	      <%= index + 1 %>.
+	    </div>
+	    <span class="part-of-speech">
+	      <% if meaning['part_of_speech'] == 'adjective' %>
+	      形容詞
+	      <% elsif meaning['part_of_speech'] == 'verb' %>
+	      動詞 
+	      <% end %>
+	    </span>
+	    <div class="definition-box">
+	      <p class="definition"><%= meaning['definition'] %></p>
+	    </div>
+            <% if meaning['transitivity'] %>
+            <span class="transitivity-badge"><%= meaning['transitivity'] %></span>
+            <% end %>
+          </h3>
+          <div class="meaning-content">
+            <p class="english-definition"><%= meaning['english_definition'] %></p>
+            <% if meaning['examples'] && !meaning['examples'].empty? %>
+            <ul class="example-list">
+              <% meaning['examples'].each do |example| %>
+              <li class="example-item">
+                <p class="sentence">"<%= example['sentence'] %>"</p>
+                <p class="translation"><em><%= example['translation'] %></em></p>
+              </li>
+              <% end %>
+            </ul>
+            <% end %>
+
+            <div class="related-terms-group">
+              <div class="related-column">
+                <% if meaning['collocations'] && !meaning['collocations'].empty? %>
+                <h4>用例:</h4>
+                <ul class="simple-list">
+                  <% meaning['collocations'].each do |collocation| %>
+                  <li><%= collocation %></li>
+                  <% end %>
+                </ul>
+                <% end %>
+              </div>
+              <div class="related-column">
+                <% if meaning['synonyms'] && !meaning['synonyms'].empty? %>
+                <h4>類義語:</h4>
+                <ul class="simple-list">
+                  <% meaning['synonyms'].each do |synonym| %>
+                  <li><%= synonym %></li>
+                  <% end %>
+                </ul>
+                <% end %>
+              </div>
+              <div class="related-column">
+                <% if meaning['antonyms'] && !meaning['antonyms'].empty? %>
+                <h4>対義語:</h4>
+                <ul class="simple-list">
+                  <% meaning['antonyms'].each do |antonym| %>
+                  <li><%= antonym %></li>
+                  <% end %>
+                </ul>
+                <% end %>
+              </div>
+            </div>
+          </div>
+        </div>
+	<% end %>
+      </section>
+
+      <section class="section">
+	<h2 class="section-title">語源</h2>
+	<p><%= @word_data['etymology']['value'] %></p>
+      </section>
+
+      <section class="section">
+	<h2 class="section-title">活用</h2>
+	<% if @word_data['inflection']['noun_forms'] %>
+        <h3>名詞の形:</h3>
+        <dl class="definition-list">
+          <dt>単数形</dt>
+          <dd><%= @word_data['inflection']['noun_forms']['singular'] %></dd>
+          <dt>複数形</dt>
+          <dd><%= @word_data['inflection']['noun_forms']['plural'] %></dd>
+        </dl>
+	<% end %>
+	<% if @word_data['inflection']['verb_forms'] %>
+        <h3>動詞の形:</h3>
+        <dl class="definition-list">
+          <dt>現在形</dt>
+          <dd><%= @word_data['inflection']['verb_forms']['present_simple'].join(', ') %></dd>
+          <dt>過去形</dt>
+          <dd><%= @word_data['inflection']['verb_forms']['past_simple'] %></dd>
+          <dt>過去分詞</dt>
+          <dd><%= @word_data['inflection']['verb_forms']['past_participle'] %></dd>
+          <dt>現在分詞</dt>
+          <dd><%= @word_data['inflection']['verb_forms']['present_participle'] %></dd>
+        </dl>
+	<% end %>
+      </section>
+
+      <section class="section">
+	<h2 class="section-title">使用上の注意</h2>
+	<div class="note-box">
+          <%= @word_data['usage_notes']['explanation'] %>
+	</div>
+      </section>
+
+      <section class="section">
+	<h2 class="section-title">よくある間違い</h2>
+	<% @word_data['common_mistakes']['examples'].each_with_index do |mistake, index| %>
+        <div class="mistake-item">
+          <h4>間違い <%= index + 1 %>:</h4>
+          <p><span class="incorrect-example"><%= mistake['incorrect'] %></span></p>
+          <p><span class="correct-example"><%= mistake['correct'] %></span></p>
+          <p class="note-text"><strong>補足:</strong> <%= mistake['note'] %></p>
+        </div>
+	<% end %>
+      </section>
+
+      <section class="section">
+	<h2 class="section-title">関連語句 <small class="sub-title">(Related Words)</small></h2>
+	<div class="related-terms-group">
+          <% if @word_data['related_words']['derivatives'] && !@word_data['related_words']['derivatives'].empty? %>
+          <div class="related-column">
+            <h3>派生語:</h3>
+            <ul class="simple-list">
+              <% @word_data['related_words']['derivatives'].each do |derivative| %>
+              <li><%= derivative %></li>
+              <% end %>
+            </ul>
+          </div>
+          <% end %>
+          <% if @word_data['related_words']['phrasal_verbs'] && !@word_data['related_words']['phrasal_verbs'].empty? %>
+          <div class="related-column">
+            <h3>句動詞:</h3>
+            <ul class="simple-list">
+              <% @word_data['related_words']['phrasal_verbs'].each do |phrasal_verb| %>
+              <li><%= phrasal_verb %></li>
+              <% end %>
+            </ul>
+          </div>
+          <% end %>
+          <% if @word_data['related_words']['idioms_phrases'] && !@word_data['related_words']['idioms_phrases'].empty? %>
+          <div class="related-column">
+            <h3>イディオム・慣用句:</h3>
+            <ul class="simple-list">
+              <% @word_data['related_words']['idioms_phrases'].each do |idiom| %>
+              <li><%= idiom %></li>
+              <% end %>
+            </ul>
+          </div>
+          <% end %>
+	</div>
+      </section>
+
+      <section class="section">
+	<h2 class="section-title">レベル・頻度 <small class="sub-title">(Level & Frequency)</small></h2>
+	<dl class="definition-list">
+          <dt>CEFR</dt>
+          <dd><%= @word_data['level_frequency']['CEFR'] %></dd>
+          <dt>Google Ngram 頻度</dt>
+          <dd><%= @word_data['level_frequency']['frequency_google_ngram'] %></dd>
+	</dl>
+      </section>
+
+      <section class="section">
+	<h2 class="section-title">やさしい解説 <small class="sub-title">(Readability Explanation)</small></h2>
+	<div class="readability-explanation">
+          <p class="readability-level"><strong>対象レベル:</strong> <%= @word_data['readability_explanation']['level'] %></p>
+          <p><%= @word_data['readability_explanation']['text'] %></p>
+	</div>
+      </section>
+
+      <section class="section">
+	<h2 class="section-title">追加例文 <small class="sub-title">(Additional Example Sentences)</small></h2>
+	<ul class="additional-example-list">
+          <% @word_data['example_sentences'].each do |ex_sentence| %>
+          <li class="additional-example-item">
+            <p class="sentence">"<%= ex_sentence['sentence'] %>"</p>
+            <p class="translation"><em><%= ex_sentence['translation'] %></em></p>
+            <p class="meta-info">
+              タイプ: <span class="badge"><%= ex_sentence['type'] %></span>,
+              カテゴリ: <span class="badge"><%= ex_sentence['meaning_category'] %></span>
+            </p>
+          </li>
+          <% end %>
+	</ul>
+      </section>
+
+    </div>
+  </body>
+</html>
