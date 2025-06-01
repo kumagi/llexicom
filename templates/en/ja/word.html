@@ -16,6 +16,7 @@
 	<span class="priority"><%= @word_data['priority'] %></span>
       </div>
 
+      <% if @word_data.dig('pronounciation') %>
       <div class="pronounce-section">
 	<% if @word_data['pronunciation'].has_key?('ipa') %>
 	<div class="ipa"><%= @word_data['pronunciation']['ipa'] %></div>
@@ -33,7 +34,9 @@
           (<%= @word_data['pronunciation']['syllables'] %>)
 	</div>
       </div>
+      <% end %>
       
+      <% if @word_data.dig('meanings') %>
       <section class="section">
 	<% @word_data['meanings'].each_with_index do |meaning, index| %>
         <div class="meaning-card" onclick="meaning_clicked(this)">
@@ -104,12 +107,16 @@
         </div>
 	<% end %>
       </section>
+      <% end %>
 
+      <% if @word_data.dig('etymology') %>
       <section class="section">
 	<h2 class="section-title">語源</h2>
 	<p><%= @word_data['etymology']['value'] %></p>
       </section>
+      <% end %>
 
+      <% if @word_data.dig('inflection') %>
       <section class="section">
 	<h2 class="section-title">活用</h2>
 	<% if @word_data['inflection']['noun_forms'] %>
@@ -135,14 +142,18 @@
         </dl>
 	<% end %>
       </section>
+      <% end %>
 
+      <% if @word_data.dig('usage_notes') %>
       <section class="section">
 	<h2 class="section-title">使用上の注意</h2>
 	<div class="note-box">
           <%= @word_data['usage_notes']['explanation'] %>
 	</div>
       </section>
+      <% end %>
 
+      <% if @word_data.dig('common_mistakes') %>
       <section class="section">
 	<h2 class="section-title">よくある間違い</h2>
 	<% @word_data['common_mistakes']['examples'].each_with_index do |mistake, index| %>
@@ -154,7 +165,9 @@
         </div>
 	<% end %>
       </section>
+      <% end %>
 
+      <% if @word_data.dig('related_words', 'derivarives') %>
       <section class="section">
 	<h2 class="section-title">関連語句 <small class="sub-title">(Related Words)</small></h2>
 	<div class="related-terms-group">
@@ -190,7 +203,9 @@
           <% end %>
 	</div>
       </section>
+      <% end %>
 
+      <% if @word_data.dig('level_frequency') %>
       <section class="section">
 	<h2 class="section-title">レベル・頻度 <small class="sub-title">(Level & Frequency)</small></h2>
 	<dl class="definition-list">
@@ -200,7 +215,9 @@
           <dd><%= @word_data['level_frequency']['frequency_google_ngram'] %></dd>
 	</dl>
       </section>
+      <% end %>
 
+      <% if @word_data.dig('readability_explanation') %>
       <section class="section">
 	<h2 class="section-title">やさしい解説 <small class="sub-title">(Readability Explanation)</small></h2>
 	<div class="readability-explanation">
@@ -208,7 +225,9 @@
           <p><%= @word_data['readability_explanation']['text'] %></p>
 	</div>
       </section>
+      <% end %>
 
+      <% if @word_data.dig('example_sentences') %>
       <section class="section">
 	<h2 class="section-title">追加例文 <small class="sub-title">(Additional Example Sentences)</small></h2>
 	<ul class="additional-example-list">
@@ -224,6 +243,7 @@
           <% end %>
 	</ul>
       </section>
+      <% end %>
 
     </div>
   </body>
