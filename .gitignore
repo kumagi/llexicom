@@ -2,3 +2,6 @@
 *.txt
 .ruby-version
 docs
+keys.yml
+keys.json
+secret.json
