@@ -1,0 +1,464 @@
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #eee;
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+}
+
+.container {
+    max-width: 960px;
+    margin: 10px auto auto auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.05);
+    box-sizing: border-box;
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 30px;
+    font-size: 2.2em;
+    font-weight: 600;
+}
+
+/* 検索ボックスのスタイル */
+.search-box {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 4px;
+}
+
+#searchInput {
+    flex-grow: 1;
+    padding: 12px 18px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 1.1em;
+    outline: none;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+#searchInput:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25);
+}
+
+#searchButton {
+    padding: 12px 25px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1em;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+#searchButton:hover {
+    background-color: #0056b3;
+    transform: translateY(-2px);
+}
+
+#searchButton:active {
+    transform: translateY(0);
+}
+
+.results-container {
+    min-height: 100px;
+}
+
+/* 辞書エントリーごとのスタイル */
+.dictionary-entry {
+    background-color: #fafafa;
+    border: 1px solid #e0e0e0;
+    border-radius: 10px;
+    padding: 20px 25px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.dictionary-entry:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.dictionary-entry h2 {
+    color: #2c3e50;
+    margin-top: 0;
+    margin-bottom: 10px;
+    font-size: 1.8em;
+    font-weight: 600;
+    border-bottom: 2px solid #e9ecef;
+    padding-bottom: 8px;
+}
+
+.dictionary-entry .meaning {
+    color: #555;
+    line-height: 1.6;
+    margin-bottom: 10px;
+    font-size: 1.05em;
+}
+
+.dictionary-entry .example {
+    color: #777;
+    font-style: italic;
+    margin-left: 15px;
+    border-left: 3px solid #ced4da;
+    padding-left: 10px;
+    font-size: 0.95em;
+}
+
+
+h2 {
+    font-size: 2rem;
+    font-weight: 600;
+    color: #495057;
+    border-bottom: 2px solid #dee2e6;
+    padding-bottom: 0.5rem;
+    margin-top: 2.5rem;
+    margin-bottom: 1.5rem;
+}
+
+h3 {
+    font-weight: 600;
+    color: #505760;
+    margin-top: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+h4 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #6c757d;
+    margin-top: 1rem;
+    margin-bottom: 0.75rem;
+}
+
+/* Utility / Helper Classes */
+.sub-title {
+    font-size: 0.8em;
+    color: #6c757d;
+}
+
+/* Header Section */
+.header-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+}
+
+h1 {
+    margin: auto;
+    color: #04b;
+    font-size: 48px;
+    font-weight: 740;
+    height: 76px;
+}
+
+.pronounce-section {
+    margin: auto;
+    color: #888;
+    display: flex;
+    justify-content: center;
+}
+
+.priority-box {
+    display: flex;
+    align-itms: center;
+    justify-content: center;
+}
+.priority {
+    font-size: 1.5rem;
+    color: #ffc107; /* yellow */
+}
+.syllable {
+    margin-left: 8px;
+}
+
+/* Pronunciation */
+.ipa {
+    font-family: 'Charis SIL', 'DejaVu Sans', sans-serif; /* IPA characters font */
+}
+
+.definition-box {
+}
+
+.definition-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.definition-list dt {
+    font-weight: bold;
+    float: left;
+    width: 120px;
+    margin-bottom: 10px;
+}
+
+.definition-list dd {
+    margin-left: 140px;
+    margin-bottom: 10px;
+}
+
+/* Meanings Section */
+.meaning-card {
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    margin-bottom: 4px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.meaning-card .meaning-title {
+    background: linear-gradient(90deg,rgba(3, 0, 184, 1) 0%, rgba(4, 0, 255, 1) 100%);
+    cursor: pointer;
+    color: #fff;
+    padding-left: 12px;
+    padding-right: 12px;
+    margin-top: 0;
+    margin-bottom: 0;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.meaning-title:hover {
+    filter: brightness(150%);
+}
+
+.meaning-card .meaning-title.expand {
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+}
+
+.number {
+    padding: 4px;
+}
+
+.part-of-speech {
+    background-color: #0c80b0;
+    color: #fff;
+    padding: 0px 4px;
+    border-radius: 5px;
+    font-size: 0.9em;
+}
+
+.svg-box {
+    margin: 10px;
+}
+
+.transitivity-badge {
+    background-color: #6c85fd;
+    color: #fff;
+    padding: 4px 8px;
+    border-radius: 5px;
+    font-size: 0.9em;
+    margin-left: 10px;
+}
+
+.meaning-content {
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease, opacity 0.3s ease;
+}
+
+.meaning-content.visible {
+    max-height: 1000px;
+    padding: 20px;
+    opacity: 1;
+}
+
+.definition-group {
+    margin-bottom: 15px;
+}
+
+.definition-jp {
+    font-weight: bold;
+}
+
+.english-definition {
+    color: #555;
+}
+
+.example-list {
+    list-style: none;
+    padding: 0;
+    margin-left: 20px;
+    border-left: 3px solid #0dcaf0; /* cyan */
+    padding-left: 10px;
+}
+
+.example-item {
+    margin-bottom: 8px;
+}
+
+.example-item .sentence {
+    font-style: italic;
+    color: #495057;
+    margin-bottom: 2px;
+}
+
+.example-item .translation {
+    font-size: 0.95rem;
+    color: #6c757d;
+    margin-top: 0;
+}
+
+.related-terms-group {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.related-column{ 
+    flex: 1 1 calc(33.333% - 20px / 3 * 2); /* 3カラムにするための計算 */
+
+}
+
+.simple-list {
+    list-style: disc;
+    padding-left: 20px;
+    margin: 0;
+}
+
+.simple-list li {
+    margin-bottom: 5px;
+}
+
+/* Usage Notes & Readability Explanation */
+.note-box, .readability-explanation {
+    background-color: #e9ecef; /* light gray */
+    border-left: 5px solid #6c757d; /* dark gray border */
+    padding: 15px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+.readability-explanation {
+    background-color: #f0f8ff; /* light blue */
+    border: 1px solid #cce5ff;
+}
+
+.readability-level {
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+/* Common Mistakes */
+.mistake-item {
+    border: 1px solid #e0e0e0;
+    padding: 15px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    background-color: #fff;
+}
+
+.incorrect-example {
+    color: #dc3545; /* red */
+    font-weight: bold;
+}
+
+.correct-example {
+    color: #198754; /* green */
+    font-weight: bold;
+}
+
+.note-text {
+    font-size: 0.95rem;
+    color: #6c757d;
+    margin-top: 10px;
+}
+
+/* Additional Example Sentences */
+.additional-example-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.additional-example-item {
+    border: 1px solid #e9ecef;
+    border-radius: 5px;
+    padding: 15px;
+    margin-bottom: 10px;
+    background-color: #fcfcfc;
+}
+
+.additional-example-item .sentence {
+    margin-bottom: 5px;
+}
+
+.additional-example-item .translation {
+    font-style: italic;
+    color: #555;
+    margin-bottom: 10px;
+}
+
+.meta-info {
+    font-size: 0.85rem;
+    color: #777;
+    text-align: right;
+    margin-top: 10px;
+}
+
+.badge {
+    background-color: #6c757d;
+    color: #fff;
+    padding: 3px 7px;
+    border-radius: 3px;
+    font-size: 0.8em;
+    white-space: nowrap;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .container {
+	margin: 20px 15px;
+	padding: 20px;
+    }
+    h1 {
+	font-size: 2.2rem;
+    }
+    h2 {
+	font-size: 1.8rem;
+    }
+    h3 {
+	font-size: 1.3rem;
+    }
+    h4 {
+	font-size: 1.1rem;
+    }
+    .header-section {
+	flex-direction: column;
+	align-items: flex-start;
+    }
+    .priority {
+	margin-top: 10px;
+	font-size: 1.2rem;
+    }
+    .related-terms-group {
+	flex-direction: column;
+	gap: 15px;
+    }
+    .related-column {
+	min-width: unset; /* Remove min-width for small screens */
+	width: 100%;
+    }
+}

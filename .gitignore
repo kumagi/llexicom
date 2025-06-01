@@ -1,0 +1,10 @@
+*~
+dict
+example
+*.rb
+templates
+*.txt
+.ruby-version
+secrets.*
+secret.*
+keys.*
