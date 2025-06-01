@@ -1,0 +1,234 @@
+{
+    "word": "happy",
+    "priority": "★★★",
+    "meanings": [
+	{
+            "part_of_speech": "adjective",
+            "definition": "(人が)幸福な、うれしい、楽しい、満足している",
+            "english_definition": "feeling, showing, or causing pleasure or contentment.",
+            "examples": [
+		{
+		    "sentence": "She looks genuinely happy.",
+		    "translation": "彼女は本当に幸せそうだ。"
+		},
+		{
+		    "sentence": "I'm so happy to see you!",
+		    "translation": "あなたに会えてとても嬉しいです！"
+		},
+		{
+		    "sentence": "We spent many happy years together.",
+		    "translation": "私たちは共に多くの幸せな年月を過ごした。"
+		},
+		{
+		    "sentence": "Are you happy with your new job?",
+		    "translation": "新しい仕事に満足していますか。"
+		}
+            ],
+            "collocations": [
+		"happy about/with something (～に満足している、～を喜んでいる)",
+		"happy for someone (（人）のことを喜ばしく思う)",
+		"happy to do something (喜んで～する)",
+		"a happy smile (幸せそうな笑顔)",
+		"a happy marriage (幸せな結婚)",
+		"happy memories (楽しい思い出)",
+		"feel happy (幸せを感じる)",
+		"make someone happy (人を幸せにする)"
+            ],
+            "synonyms": ["joyful", "cheerful", "content", "pleased", "delighted", "glad", "elated", "merry"],
+            "antonyms": ["unhappy", "sad", "miserable", "displeased", "depressed"]
+	},
+	{
+            "part_of_speech": "adjective",
+            "definition": "(状況・出来事が)幸運な、都合のよい、めでたい",
+            "english_definition": "fortunate and convenient; bringing good luck.",
+            "examples": [
+		{
+		    "sentence": "It was a happy coincidence that they were both in Paris at the same time.",
+		    "translation": "彼らが同時にパリにいたのは幸運な偶然だった。"
+		},
+		{
+		    "sentence": "By a happy chance, I found the book I was looking for.",
+		    "translation": "幸運にも、探していた本を見つけた。"
+		},
+		{
+		    "sentence": "Happy birthday! / Happy New Year!",
+		    "translation": "お誕生日おめでとう！／新年あけましておめでとう！"
+		}
+            ],
+            "collocations": [
+		"a happy accident (幸運な偶然)",
+		"a happy coincidence (幸運な偶然の一致)",
+		"a happy outcome (好結果)",
+		"a happy medium (中庸、妥協点)",
+		"happy occasion (喜ばしい出来事)"
+            ],
+            "synonyms": ["fortunate", "lucky", "favorable", "auspicious", "providential"],
+            "antonyms": ["unfortunate", "unlucky", "inauspicious"]
+	},
+	{
+            "part_of_speech": "adjective",
+            "definition": "(言葉・行動・選択などが)適切な、巧みな、うまい",
+            "english_definition": "(of words, behavior, etc.) apt, fitting, or skillful.",
+            "examples": [
+		{
+		    "sentence": "That was not a very happy choice of words.",
+		    "translation": "それはあまり適切な言葉遣いではなかった。"
+		},
+		{
+		    "sentence": "His speech struck a happy note.",
+		    "translation": "彼のスピーチは的を射たものだった（良い印象を与えた）。"
+		}
+            ],
+            "collocations": [
+		"a happy phrase (気の利いた言い回し)",
+		"a happy choice (適切な選択)"
+            ],
+            "synonyms": ["apt", "fitting", "suitable", "appropriate", "felicitous", "skillful"],
+            "antonyms": ["inappropriate", "unsuitable", "infelicitous", "awkward"]
+	},
+	{
+            "part_of_speech": "adjective",
+            "definition": "(やや略式)（ある物事に）夢中な、～狂の (接尾辞的に使われることも多い)",
+            "english_definition": "(informal) enthusiastically or obsessively fond of or preoccupied with something (often used as a suffix).",
+            "examples": [
+		{
+		    "sentence": "He's camera-happy and takes photos of everything.",
+		    "translation": "彼はカメラ好きで何でも写真を撮る。"
+		},
+		{
+		    "sentence": "The kids were slap-happy after a day at the amusement park.",
+		    "translation": "子供たちは遊園地で一日過ごし、興奮して浮かれていた。"
+		}
+            ],
+            "collocations": [
+		"trigger-happy (すぐに銃を撃ちたがる)",
+		"slap-happy (興奮して浮かれている、パンチドランカーの)",
+		"photo-happy (写真撮影に夢中な)"
+            ],
+            "synonyms": ["obsessed", "enthusiastic", "crazy about", "mad about"],
+            "antonyms": ["indifferent", "apathetic"]
+	},
+	{
+            "part_of_speech": "adjective",
+            "definition": "(やや略式)（適度に）酔って上機嫌な",
+            "english_definition": "(informal) slightly and pleasantly drunk.",
+            "examples": [
+		{
+		    "sentence": "After a few glasses of wine, everyone was feeling happy and relaxed.",
+		    "translation": "ワインを数杯飲んで、皆陽気でリラックスした気分になった。"
+		}
+            ],
+            "collocations": [
+		"feel happy (上機嫌になる)"
+            ],
+            "synonyms": ["tipsy", "merry", "jovial"],
+            "antonyms": ["sober"]
+	}
+    ],
+    "etymology": {
+	"value": "中英語の「hap」（幸運、偶然）に「-y」が付いた形に由来する。古ノルド語の「happ」（幸運、偶然）に関連し、元々は「幸運に恵まれた」という意味合いが強かった。「Happen」（起こる）も同語源。感情としての「幸福な」という意味は14世紀後半から見られる。",
+	"priority": "★★☆"
+    },
+    "pronunciation": {
+	"ipa": "/ˈhæpi/",
+	"syllables": "hap-py",
+	"audio_url": "https://example.com/happy_audio.mp3"
+    },
+    "inflection": {
+	"adjective_forms": {
+            "comparative": "happier",
+            "superlative": "happiest"
+	}
+    },
+    "usage_notes": {
+	"explanation": "「**happy**」は最も基本的な感情を表す形容詞の一つで、「幸福な」「嬉しい」という中核的な意味を持ちます。人の感情だけでなく、状況が「幸運な」様子や、言葉遣いが「適切な」様子を表すこともあります。「happy about/with something」（事柄について満足）、「happy for someone」（人の成功などを喜ぶ）、「happy to do something」（喜んで～する）のように、前置詞やto不定詞を伴う形でよく使われます。「Happy Birthday」のような定型的な挨拶にも不可欠な単語です。文脈によって「満足している」「楽しい」「幸運な」「適切な」など、ニュアンスが異なります。",
+	"priority": "★★★"
+    },
+    "common_mistakes": {
+	"examples": [
+            {
+		"incorrect": "✗ I'm happy of your success.",
+		"correct": "✓ I'm happy for your success. / ✓ I'm happy about your success.",
+		"note": "誰かの成功や良い出来事を喜ぶ場合は `happy for someone` や `happy about something` を使います。`happy of` という形は通常使いません。"
+            },
+            {
+		"incorrect": "✗ She is very happy to the party.",
+		"correct": "✓ She is very happy at the party. / ✓ She is very happy to be at the party.",
+		"note": "場所で楽しんでいることを示す場合は `happy at (a place)` や、パーティーに行くことを楽しみにしている、またはパーティーにいることを喜んでいるなら `happy to go to the party` / `happy to be at the party` のように表現します。"
+            },
+            {
+		"incorrect": "✗ This news made me happily.",
+		"correct": "✓ This news made me happy.",
+		"note": "`make someone + 形容詞` の形で「（人）を～な状態にする」という意味になります。副詞の `happily` ではなく形容詞の `happy` を使います。"
+            }
+	],
+	"priority": "★★☆"
+    },
+    "related_words": {
+	"derivatives": [
+            "happiness (名詞: 幸福、満足)",
+            "happily (副詞: 幸福に、楽しく、幸いにも)",
+            "unhappy (形容詞: 不幸な、不満な)",
+            "unhappiness (名詞: 不幸、不満)",
+            "unhappily (副詞: 不幸にも、不満そうに)",
+            "happy-go-lucky (形容詞: のんきな、楽天的な)"
+	],
+	"idioms_phrases": [
+            "happy medium (中庸、ほどよいところ)",
+            "happy accident/coincidence (幸運な偶然の一致)",
+            "happy hour (ハッピーアワー、飲み物が割引になる時間帯)",
+            "many happy returns (of the day) (誕生日おめでとうの決まり文句)",
+            "happy camper (満足している人、機嫌の良い人)",
+            "happy hunting ground (理想郷、楽園；（比喩的に）最適な場所)"
+	],
+	"priority": "★★★"
+    },
+    "level_frequency": {
+	"CEFR": "A1",
+	"frequency_google_ngram": "非常に高頻度 (Very high frequency) - 英語の最重要基本語彙の一つ。",
+	"priority": "★☆☆"
+    },
+    "readability_explanation": {
+	"level": "A1",
+	"text": "「**happy**」は「うれしい」や「しあわせ」という気持ちを表す、とてもよく使われる基本的な単語です。例えば、「I am happy.（私はうれしいです）」のように使います。誕生日には「Happy Birthday!」と言いますね。何かに「満足している」ときや、何かが「運よく」うまくいったときにも使えます。いろいろな場面で使える便利な言葉なので、基本的な使い方を覚えましょう。"
+    },
+
+    "example_sentences": [
+	{
+	    "sentence": "She has a very **happy** personality.",
+	    "translation": "彼女はとても陽気な性格だ。",
+	    "type": "adjective",
+	    "meaning_category": "幸福な・うれしい"
+	},
+	{
+	    "sentence": "We were all **happy** with the result.",
+	    "translation": "私たちは皆その結果に満足していた。",
+	    "type": "adjective",
+	    "meaning_category": "満足している"
+	},
+	{
+	    "sentence": "It was a **happy** coincidence to meet her there.",
+	    "translation": "そこで彼女に会えたのは幸運な偶然だった。",
+	    "type": "adjective",
+	    "meaning_category": "幸運な"
+	},
+	{
+	    "sentence": "I'm perfectly **happy** to help you.",
+	    "translation": "喜んでお手伝いしますよ。",
+	    "type": "adjective",
+	    "meaning_category": "喜んで～する"
+	},
+	{
+	    "sentence": "He made a few **happy** remarks that lightened the mood.",
+	    "translation": "彼がいくつかの気の利いた発言をして場が和んだ。",
+	    "type": "adjective",
+	    "meaning_category": "適切な・巧みな"
+	},
+	{
+	    "sentence": "The children were **happy** playing in the park.",
+	    "translation": "子供たちは公園で楽しそうに遊んでいた。",
+	    "type": "adjective",
+	    "meaning_category": "楽しい"
+	}
+    ]
+}

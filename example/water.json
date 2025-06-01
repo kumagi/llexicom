@@ -1,0 +1,340 @@
+{
+    "word": "water",
+    "priority": "★★★",
+    "meanings": [
+	{
+            "part_of_speech": "noun",
+            "definition": "水 (H₂O)、液体としての水、飲み水 (通常不可算)",
+            "english_definition": "a clear liquid, without colour, taste, or smell, that falls from clouds as rain, forms streams, lakes, and seas, and is used for drinking, washing, etc.",
+            "examples": [
+		{
+		    "sentence": "I need a glass of water.",
+		    "translation": "水一杯ください。"
+		},
+		{
+		    "sentence": "Plants need water to grow.",
+		    "translation": "植物は成長するために水が必要です。"
+		},
+		{
+		    "sentence": "Is this tap water safe to drink?",
+		    "translation": "この水道水は飲んでも安全ですか。"
+		}
+            ],
+            "collocations": [
+		"drinking water (飲料水)",
+		"fresh water (淡水)",
+		"salt water (塩水)",
+		"tap water (水道水)",
+		"mineral water (ミネラルウォーター)",
+		"boiling water (熱湯)",
+		"cold water (冷水)",
+		"a glass of water (コップ一杯の水)",
+		"a drop of water (一滴の水)"
+            ],
+            "synonyms": ["H₂O", "aqua (technical or Latinate)", "Adam's ale (humorous for drinking water)"],
+            "antonyms": []
+	},
+	{
+            "part_of_speech": "noun",
+            "definition": "(複数形 waters で) 海、湖、川などの広大な水域、領海",
+            "english_definition": "(often waters) an area of water, such as a sea, lake, or river; the water in a particular sea, lake, or river.",
+            "examples": [
+		{
+		    "sentence": "The ship sailed into international waters.",
+		    "translation": "その船は公海へ航行した。"
+		},
+		{
+		    "sentence": "These fish are found in coastal waters.",
+		    "translation": "これらの魚は沿岸水域で見つかります。"
+		},
+		{
+		    "sentence": "The waters of the lake are very clear.",
+		    "translation": "その湖の水はとても澄んでいる。"
+		}
+            ],
+            "collocations": [
+		"territorial waters (領海)",
+		"international waters (公海)",
+		"coastal waters (沿岸水域)",
+		"deep waters (深海、難局)",
+		"shallow waters (浅瀬)",
+		"the waters of the Nile (ナイル川の水)"
+            ],
+            "synonyms": ["sea", "ocean", "lake", "river", "body of water"],
+            "antonyms": ["land", "dry land"]
+	},
+	{
+            "part_of_speech": "noun",
+            "definition": "(複数形 waters で) 特定の種類の水、温泉水、鉱泉水",
+            "english_definition": "(waters) water from a particular spring, spa, etc., considered to have medicinal properties.",
+            "examples": [
+		{
+		    "sentence": "Many people visit the spa to take the waters.",
+		    "translation": "多くの人々が湯治のためにその温泉を訪れる。"
+		},
+		{
+		    "sentence": "The town is famous for its medicinal waters.",
+		    "translation": "その町は薬効のある鉱泉水で有名だ。"
+		}
+            ],
+            "collocations": [
+		"take the waters (湯治する)",
+		"medicinal waters (薬効のある水)",
+		"spa waters (温泉水)"
+            ],
+            "synonyms": ["spa", "mineral spring"],
+            "antonyms": []
+	},
+	{
+            "part_of_speech": "noun",
+            "definition": "(複数形 waters で) 羊水",
+            "english_definition": "(waters or amniotic fluid) the fluid surrounding a baby in the womb.",
+            "examples": [
+		{
+		    "sentence": "Her waters broke just before the baby was born.",
+		    "translation": "赤ちゃんが生まれる直前に彼女は破水した。"
+		}
+            ],
+            "collocations": [
+		"her waters break (彼女が破水する)"
+            ],
+            "synonyms": ["amniotic fluid"],
+            "antonyms": []
+	},
+	{
+            "part_of_speech": "noun",
+            "definition": "(宝石の)光沢、透明度、色つや",
+            "english_definition": "the quality of a precious stone, especially a diamond, as regards its transparency and brilliance.",
+            "examples": [
+		{
+		    "sentence": "This diamond is of the first water.",
+		    "translation": "このダイヤモンドは最高級品だ。"
+		}
+            ],
+            "collocations": [
+		"of the first water (最高級の、第一級の)"
+            ],
+            "synonyms": ["brilliance", "luster", "clarity"],
+            "antonyms": []
+	},
+	{
+            "part_of_speech": "verb",
+            "transitivity": "vt",
+            "definition": "(植物・地面など)に水をやる、散水する",
+            "english_definition": "to pour water on plants, the ground, etc.",
+            "examples": [
+		{
+		    "sentence": "Don't forget to water the plants while I'm away.",
+		    "translation": "私が留守の間、植物に水をやるのを忘れないでね。"
+		},
+		{
+		    "sentence": "He watered the garden every evening.",
+		    "translation": "彼は毎晩庭に水をまいた。"
+		}
+            ],
+            "collocations": [
+		"water the plants/flowers (植物/花に水をやる)",
+		"water the lawn/garden (芝生/庭に水をやる)"
+            ],
+            "synonyms": ["irrigate", "sprinkle", "hose down"],
+            "antonyms": ["dry", "dehydrate"]
+	},
+	{
+            "part_of_speech": "verb",
+            "transitivity": "vt",
+            "definition": "(動物)に水を飲ませる",
+            "english_definition": "to give water to an animal to drink.",
+            "examples": [
+		{
+		    "sentence": "The farmer watered his cattle at the stream.",
+		    "translation": "農夫は小川で牛に水を飲ませた。"
+		}
+            ],
+            "collocations": [
+		"water the horses/cattle (馬/牛に水を飲ませる)"
+            ],
+            "synonyms": ["give drink to"],
+            "antonyms": []
+	},
+	{
+            "part_of_speech": "verb",
+            "transitivity": "vi",
+            "definition": "(目などが)涙でいっぱいになる、涙ぐむ",
+            "english_definition": "(of the eyes) to fill with tears.",
+            "examples": [
+		{
+		    "sentence": "The smoke made my eyes water.",
+		    "translation": "煙で目がしょぼしょぼした（涙が出た）。"
+		},
+		{
+		    "sentence": "Her eyes started to water from the cold wind.",
+		    "translation": "冷たい風で彼女の目は涙ぐみ始めた。"
+		}
+            ],
+            "collocations": [
+		"eyes water (目が涙ぐむ)"
+            ],
+            "synonyms": ["tear up", "become tearful"],
+            "antonyms": []
+	},
+	{
+            "part_of_speech": "verb",
+            "transitivity": "vi",
+            "definition": "(口が)よだれでいっぱいになる、よだれが出る (食欲をそそられて)",
+            "english_definition": "(of the mouth) to produce a lot of saliva, especially when you see or smell food.",
+            "examples": [
+		{
+		    "sentence": "The smell of baking bread made my mouth water.",
+		    "translation": "パンの焼ける匂いでよだれが出た。"
+		}
+            ],
+            "collocations": [
+		"mouth waters (よだれが出る)"
+            ],
+            "synonyms": ["salivate", "drool"],
+            "antonyms": []
+	},
+	{
+            "part_of_speech": "verb",
+            "transitivity": "vt",
+            "definition": "(酒・スープなど)を水で薄める (しばしば water down)",
+            "english_definition": "to add water to a drink or liquid food, often to make it less strong or to increase its quantity.",
+            "examples": [
+		{
+		    "sentence": "He watered the whisky down too much.",
+		    "translation": "彼はウイスキーを水で薄めすぎた。"
+		}
+            ],
+            "collocations": [
+		"water something down (～を水で薄める、～の内容を骨抜きにする)"
+            ],
+            "synonyms": ["dilute", "thin out"],
+            "antonyms": ["concentrate", "strengthen"]
+	}
+    ],
+    "etymology": {
+	"value": "古英語の「wæter」(名詞)、「wætrian」(動詞)に由来。ゲルマン祖語の「*watar」(名詞)、「*watrōjanan」(動詞)に遡る。インド・ヨーロッパ祖語の「*wodor」または「*wed-」(水、濡れた)に関連し、多くの印欧語族の言語（例: ギリシャ語の「hydor」、ロシア語の「voda」、ラテン語の「unda」(波)）と共通の語源を持つ。",
+    },
+    "pronunciation": {
+	"ipa_uk": "/ˈwɔː.tər/",
+	"ipa_us": "/ˈwɑː.t̬ɚ/",
+	"syllables": "wa-ter",
+    },
+    "inflection": {
+	"noun_forms": {
+            "singular": "water",
+            "plural": "water (通常不可算。特定の場合に 'waters': 水域、(温泉などの)特定の水、羊水など)"
+	},
+	"verb_forms": {
+            "present_simple": ["water", "waters"],
+            "past_simple": "watered",
+            "past_participle": "watered",
+            "present_participle": "watering"
+	}
+    },
+    "usage_notes": {
+	"explanation": "「**water**」は基本的な物質である「水」を指す名詞として最もよく使われます。この場合、通常は不可算名詞です。しかし、「海」「湖」「川」などの「水域」や「領海」、あるいは「温泉水」のような特定の種類の水を指す場合、複数形の「**waters**」が用いられます。また、「羊水」(her waters broke) の意味でも複数形です。\n動詞としては、「(植物に)水をやる」、「(動物に)水を飲ませる」という他動詞の用法と、「(目が)涙ぐむ」、「(口が)よだれを垂らす」という自動詞の用法があります。\n比喩的な表現やイディオムも非常に豊富です (例: `in hot water`, `water under the bridge`)。",
+    },
+    "common_mistakes": {
+	"examples": [
+            {
+		"incorrect": "✗ I need a water.",
+		"correct": "✓ I need some water. / ✓ I need a glass of water. / ✓ I need a bottle of water.",
+		"note": "液体としての「水」は通常不可算名詞なので、`a water` とは言いません。「コップ一杯の水」なら `a glass of water`、「ボトル入りの水」なら `a bottle of water`、あるいは単に `some water` とします。ただし、レストランで「ミネラルウォーターを一本」という意味で `a water` と注文することはあります。"
+            },
+            {
+		"incorrect": "✗ My eyes are watering me.",
+		"correct": "✓ My eyes are watering.",
+		"note": "「目が涙ぐむ」という意味の `water` は自動詞なので、目的語をとりません。"
+            },
+            {
+		"incorrect": "✗ The police entered into the water of the country.",
+		"correct": "✓ The police entered the territorial waters of the country. / ✓ The police entered the country's waters.",
+		"note": "「領海」や特定の「水域」を指す場合は、複数形の `waters` を使うのが一般的です。"
+            }
+	],
+    },
+    "related_words": {
+	"derivatives": [
+            "watery (形容詞: 水っぽい、涙ぐんだ)",
+            "waterless (形容詞: 水のない)",
+            "watering can (名詞: じょうろ)",
+            "waterproof (形容詞: 防水の；名詞: 防水着；動詞: 防水加工する)",
+            "underwater (形容詞・副詞: 水中の、水面下の)",
+            "freshwater (形容詞: 淡水の)",
+            "seawater (名詞: 海水)",
+            "waterfall (名詞: 滝)",
+            "watermark (名詞: 透かし；動詞: 透かしを入れる)",
+            "watershed (名詞: 分水嶺、転換期)"
+	],
+	"phrasal_verbs": [
+            "water down (～を水で薄める、(主張・計画など)を和らげる、骨抜きにする)"
+	],
+	"idioms_phrases": [
+            "in hot water (困ったことになって、面倒なことになって)",
+            "in deep water(s) (深刻な困難に陥って)",
+            "hold water ((議論・理論などが)筋が通る、妥当である)",
+            "not hold water ((議論などが)成り立たない)",
+            "dead in the water ((計画などが)行き詰まって、見込みがなくて)",
+            "like a fish out of water (場違いで落ち着かない、陸に上がったカッパ)",
+            "blood is thicker than water (血は水よりも濃い)",
+            "test the waters (感触を確かめる、様子を見る)",
+            "water under the bridge (過ぎ去ったこと、今さらどうにもならないこと)",
+            "come hell or high water (何があっても、どんな困難があっても)",
+            "keep one's head above water (なんとか借金をせずにやっていく、困難を切り抜ける)",
+            "pour/throw cold water on something (～に水を差す、～をけなす)"
+	],
+    },
+    "level_frequency": {
+	"CEFR": "A1 (名詞としての基本的な水、動詞「水をやる」)、A2-B1 (watersの用法、他の動詞の意味、基本的なイディオム)",
+	"frequency_google_ngram": "非常に高頻度 (Very high frequency) - 英語の最重要基本語彙の一つ。",
+    },
+    "readability_explanation": {
+	"level": "A1",
+	"text": "「**water**」は、まず「みず」という意味の言葉です。「a glass of water（コップ一杯の水）」のように使います。植物に「みずをやる」ときも「water the plants」と言います。海や川のような広い「みずの場所」を指すときは「waters」と複数形になることもあります。また、悲しいときや煙が目にしみたときに「目からみずが出る（涙ぐむ）」ことを「eyes water」、おいしそうなものを見て「口からみずが出る（よだれが出る）」ことを「mouth water」と言ったりもします。たくさんの使い方がある便利な言葉です。"
+    }
+    "example_sentences": [
+	{
+	    "sentence": "Could I have some **water**, please?",
+	    "translation": "お水をいただけますか。",
+	    "type": "noun (uncountable)",
+	    "meaning_category": "液体としての水"
+	},
+	{
+	    "sentence": "The ship was in international **waters**.",
+	    "translation": "その船は公海上にいた。",
+	    "type": "noun (plural)",
+	    "meaning_category": "水域"
+	},
+	{
+	    "sentence": "You should **water** these flowers every day.",
+	    "translation": "毎日これらの花に水をやるべきです。",
+	    "type": "verb (vt)",
+	    "meaning_category": "水をやる"
+	},
+	{
+	    "sentence": "The onions made my eyes **water**.",
+	    "translation": "玉ねぎのせいで目が涙ぐんだ。",
+	    "type": "verb (vi)",
+	    "meaning_category": "涙ぐむ"
+	},
+	{
+	    "sentence": "The delicious smell from the kitchen made my mouth **water**.",
+	    "translation": "キッチンからの美味しそうな匂いでよだれが出た。",
+	    "type": "verb (vi)",
+	    "meaning_category": "よだれが出る"
+	},
+	{
+	    "sentence": "This argument simply doesn't **hold water**.",
+	    "translation": "この議論は全く筋が通らない。",
+	    "type": "idiom (hold water)",
+	    "meaning_category": "筋が通る"
+	},
+	{
+	    "sentence": "They decided to **water down** their original ambitious proposals.",
+	    "translation": "彼らは当初の野心的な提案を骨抜きにすることに決めた。",
+	    "type": "phrasal verb (water down)",
+	    "meaning_category": "薄める・骨抜きにする"
+	}
+    ]
+}

@@ -1,0 +1,193 @@
+{
+    "word": "quite",
+    "priority": "★★★",
+    "meanings": [
+	{
+            "part_of_speech": "adverb",
+            "definition": "かなり、相当に、まずまず、まあまあ (イギリス英語では時に控えめな強調、アメリカ英語ではしばしば「とても」に近い)",
+            "english_definition": "to a significant degree; fairly; moderately (in BrE, can be less strong than 'very'; in AmE, often closer to 'very').",
+            "examples": [
+		{
+		    "sentence": "The food was quite good, but not amazing.",
+		    "translation": "食べ物はかなり良かったけれど、驚くほどではなかった。（BrEでは「まあまあ良かった」のニュアンスも）"
+		},
+		{
+		    "sentence": "It's quite warm today for February.",
+		    "translation": "2月にしては今日はかなり暖かい。"
+		},
+		{
+		    "sentence": "He plays the piano quite well.",
+		    "translation": "彼はピアノをかなり上手に弾く。"
+		},
+		{
+		    "sentence": "(AmE) That was quite a storm last night!",
+		    "translation": "昨夜はたいそうな嵐だったね！（AmEでは「とても、非常に」の意）"
+		}
+            ],
+            "collocations": [
+		"quite good/bad (かなり良い/悪い)",
+		"quite interesting (かなり興味深い)",
+		"quite different (かなり異なる)",
+		"quite often (かなり頻繁に)",
+		"quite a lot (かなりたくさん)",
+		"quite a few (かなり多くの)",
+		"quite a while (かなり長い間)"
+            ],
+            "synonyms": ["fairly", "rather", "somewhat", "considerably", "relatively", "pretty (informal)", "very (esp. AmE)"],
+            "antonyms": ["hardly", "barely", "not very"]
+	},
+	{
+            "part_of_speech": "adverb",
+            "definition": "完全に、すっかり、全く、本当に",
+            "english_definition": "completely; entirely; absolutely.",
+            "examples": [
+		{
+		    "sentence": "Are you quite sure about that?",
+		    "translation": "そのことについて本当に確信がありますか。"
+		},
+		{
+		    "sentence": "The work is not quite finished yet.",
+		    "translation": "その仕事はまだ完全には終わっていない。"
+		},
+		{
+		    "sentence": "That's quite impossible!",
+		    "translation": "それは全く不可能です！"
+		},
+		{
+		    "sentence": "She was quite alone in the house.",
+		    "translation": "彼女は家で全くの一人だった。"
+		}
+            ],
+            "collocations": [
+		"quite sure (完全に確信して)",
+		"quite certain (完全に確信して)",
+		"quite ready (すっかり準備ができて)",
+		"quite finished (完全に終わって)",
+		"quite alone (全く一人で)",
+		"quite right/wrong (全く正しい/間違っている)",
+		"quite the opposite (全く逆)",
+		"not quite (完全には～ない)"
+            ],
+            "synonyms": ["completely", "entirely", "totally", "absolutely", "wholly", "perfectly"],
+            "antonyms": ["partially", "incompletely", "somewhat"]
+	},
+	{
+            "part_of_speech": "adverb",
+            "definition": "(イギリス英語で同意や理解を示して) そのとおり、いかにも、なるほど",
+            "english_definition": "(British English) used to express agreement, understanding, or emphasis.",
+            "examples": [
+		{
+		    "sentence": "\"It's rather cold today, isn't it?\" \"Quite.\"",
+		    "translation": "「今日はかなり寒いですね」「本当にそうですな。」"
+		},
+		{
+		    "sentence": "He's what you might call a genius. Quite.",
+		    "translation": "彼はいわゆる天才だ。いかにもその通りだ。"
+		}
+            ],
+            "collocations": [
+		"Quite so. (全くその通りです。)"
+            ],
+            "synonyms": ["indeed", "precisely", "exactly", "true"],
+            "antonyms": []
+	}
+    ],
+    "etymology": {
+	"value": "中英語の「quite」(形容詞)「自由な、解放された；免除された」や副詞「完全に」から。古フランス語の「quite」(形容詞)「自由な、明確な、全額支払済の」に由来し、これはラテン語の「quietus」(自由な、静かな、休息している；参照 quiet)から来ている。「完全に」という意味が最も古く、そこから「十分に、かなり」という意味合いが派生した。",
+	"priority": "★★☆"
+    },
+    "pronunciation": {
+	"ipa": "/kwaɪt/",
+	"syllables": "quite (1 syllable)",
+	"audio_url": "https://example.com/quite_audio.mp3"
+    },
+    "inflection": {
+	"notes": "副詞なので、比較級・最上級の変化はありません。"
+    },
+    "usage_notes": {
+	"explanation": "「**quite**」は多義的な副詞で、主な意味は「かなり、相当に」と「完全に、全く」です。\n1. 「**かなり、相当に**」の意味では、修飾する形容詞や副詞の程度を表します。イギリス英語(BrE)では「まあまあ、そこそこ」という控えめな肯定から「思ったより、結構」というニュアンスまで幅広く、必ずしも強い強調を意味しません。一方、アメリカ英語(AmE)では「とても、非常に (very)」に近い、より強い強調として使われることが多いです。このニュアンスの違いに注意が必要です。\n2. 「**完全に、全く**」の意味では、しばしば `quite sure`, `quite ready`, `not quite` のような形で使われます。\n3. イギリス英語では、相手の言ったことに対して「その通りだ」と同意や強調を示す間投詞的な用法もあります。\n文脈と、話し手がイギリス英語話者かアメリカ英語話者かによって解釈が変わることがあるため、注意深く意味を捉える必要があります。「quiet (静かな)」と混同しないようにしましょう。",
+	"priority": "★★★"
+    },
+    "common_mistakes": {
+	"examples": [
+            {
+		"incorrect": "✗ The room was quite quiet, but I wanted it to be very quite.",
+		"correct": "✓ The room was quite quiet, but I wanted it to be very quiet.",
+		"note": "`quite` (副詞: かなり、全く) と `quiet` (形容詞: 静かな；名詞: 静けさ；動詞: 静かにさせる) は発音も意味も異なる単語です。スペルミスに注意しましょう。"
+            },
+            {
+		"incorrect": "✗ I'm quite agree with you.",
+		"correct": "✓ I quite agree with you. / ✓ I agree with you quite a lot.",
+		"note": "動詞を修飾する場合、`quite` は動詞の前に置かれることが多いです（例: `I quite understand`）。 `agree` を強調する場合 `I quite agree` (全く同感です) や、程度を表すなら `I agree with you quite a bit/a lot` のようにします。"
+            },
+            {
+		"note": "イギリス英語話者が `The film was quite good.` と言った場合、「まあまあ良かった（期待したほどではなかったかもしれない）」というニュアンスの可能性がありますが、アメリカ英語話者が同じように言った場合は「とても良かった」と解釈されることが多いです。このため、聞き手が誤解する可能性があります。"
+            }
+	],
+	"priority": "★★★"
+    },
+    "related_words": {
+	"derivatives": [
+            "quittance (名詞: 解除、免除、領収書 - 古風または法律用語)"
+	],
+	"idioms_phrases": [
+            "not quite (完全には～ない、もうちょっとで)",
+            "quite a bit (かなりたくさん、相当な量)",
+            "quite a few (かなりの数、相当数の)",
+            "quite a little (かなりの量 - AmE)",
+            "quite a lot (かなりたくさん)",
+            "quite a + 名詞 (なかなかの～、たいした～) (e.g., quite a surprise, quite a man)",
+            "quite something (たいしたもの、なかなかのもの)",
+            "quite the + 名詞 (まさに～なもの/人、典型的な～) (e.g., quite the gentleman, quite the scandal)",
+            "quite so (全くその通り - BrE)"
+	],
+	"priority": "★★★"
+    },
+    "level_frequency": {
+	"CEFR": "A2 (基本的な「かなり」の意味)、B1-B2 (より複雑なニュアンスや「完全に」の意味)",
+	"frequency_google_ngram": "非常に高頻度 (Very high frequency) - 英語のコア語彙の一つ。",
+	"priority": "★☆☆"
+    },
+    "readability_explanation": {
+	"level": "B1",
+	"text": "「**quite**」は「かなり」や「まったく」という意味で使われる副詞です。例えば、「This book is **quite** interesting.（この本はかなり面白い）」のように使います。イギリスとアメリカで少し意味の強さが違うことがあるので注意が必要です。イギリスでは「まあまあ」くらいの意味でも使いますが、アメリカでは「とても」に近い強い意味になることがあります。また、「Are you **quite** sure?（本当に確かですか？）」のように、「完全に」という意味も持ちます。「quiet（静かな）」という単語と間違えないようにしましょう。"
+    },
+    "example_sentences": [
+	{
+	    "sentence": "The task was **quite** difficult, but we managed to finish it.",
+	    "translation": "その仕事はかなり難しかったが、なんとか終えることができた。",
+	    "type": "adverb",
+	    "meaning_category": "かなり"
+	},
+	{
+	    "sentence": "I'm not **quite** ready to leave yet.",
+	    "translation": "まだ出発の準備が完全にはできていません。",
+	    "type": "adverb",
+	    "meaning_category": "完全に"
+	},
+	{
+	    "sentence": "It was **quite** an achievement for such a young player.",
+	    "translation": "あんなに若い選手にとっては、それはたいした功績だった。",
+	    "type": "adverb (in idiom 'quite a')",
+	    "meaning_category": "かなり・たいした"
+	},
+	{
+	    "sentence": "(BrE) \"A lovely day, isn't it?\" \"**Quite**.\"",
+	    "translation": "「素晴らしい天気ですね」「本当にそうですね。」",
+	    "type": "adverb (interjection)",
+	    "meaning_category": "そのとおり"
+	},
+	{
+	    "sentence": "She was **quite** exhausted after the long journey.",
+	    "translation": "長い旅の後、彼女はすっかり疲れ果てていた。",
+	    "type": "adverb",
+	    "meaning_category": "完全に"
+	},
+	{
+	    "sentence": "We had to wait for **quite** a while.",
+	    "translation": "私たちはかなり長い間待たなければならなかった。",
+	    "type": "adverb (in idiom 'quite a while')",
+	    "meaning_category": "かなり"
+	}
+    ]
+}
