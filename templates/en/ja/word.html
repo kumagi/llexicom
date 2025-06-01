@@ -48,14 +48,22 @@
 	      <% if meaning['part_of_speech'] == 'adjective' %>
 	      形容詞
 	      <% elsif meaning['part_of_speech'] == 'verb' %>
-	      動詞 
+	      動詞
+	      <% elsif meaning['part_of_speech'] == 'noun' %>
+	      名詞
 	      <% end %>
 	    </span>
 	    <div class="definition-box">
 	      <p class="definition"><%= meaning['definition'] %></p>
 	    </div>
             <% if meaning['transitivity'] %>
-            <span class="transitivity-badge"><%= meaning['transitivity'] %></span>
+            <span class="transitivity-badge">
+	      <% if meaning['transitivity'] == "vt" %>
+	      他
+	      <% elsif meaning['transitivity'] == "vi" %>
+	      自
+	      <% end %>
+	    </span>
             <% end %>
           </h3>
           <div class="meaning-content">
@@ -109,6 +117,16 @@
       </section>
       <% end %>
 
+      <% if @word_data.dig('readability_explanation') %>
+      <section class="section">
+	<h2 class="section-title">解説</h2>
+	<div class="readability-explanation">
+          <p class="readability-level"><strong>対象レベル:</strong> <%= @word_data['readability_explanation']['level'] %></p>
+          <p><%= @word_data['readability_explanation']['text'] %></p>
+	</div>
+      </section>
+      <% end %>
+
       <% if @word_data.dig('etymology') %>
       <section class="section">
 	<h2 class="section-title">語源</h2>
@@ -116,7 +134,7 @@
       </section>
       <% end %>
 
-      <% if @word_data.dig('inflection') %>
+      <% if @word_data.dig('inflection', 'noun_forms') || @word_data.dig('inflection', 'verb_forms') %>
       <section class="section">
 	<h2 class="section-title">活用</h2>
 	<% if @word_data['inflection']['noun_forms'] %>
@@ -207,7 +225,7 @@
 
       <% if @word_data.dig('level_frequency') %>
       <section class="section">
-	<h2 class="section-title">レベル・頻度 <small class="sub-title">(Level & Frequency)</small></h2>
+	<h2 class="section-title">レベル・頻度</h2>
 	<dl class="definition-list">
           <dt>CEFR</dt>
           <dd><%= @word_data['level_frequency']['CEFR'] %></dd>
@@ -217,19 +235,9 @@
       </section>
       <% end %>
 
-      <% if @word_data.dig('readability_explanation') %>
-      <section class="section">
-	<h2 class="section-title">やさしい解説 <small class="sub-title">(Readability Explanation)</small></h2>
-	<div class="readability-explanation">
-          <p class="readability-level"><strong>対象レベル:</strong> <%= @word_data['readability_explanation']['level'] %></p>
-          <p><%= @word_data['readability_explanation']['text'] %></p>
-	</div>
-      </section>
-      <% end %>
-
       <% if @word_data.dig('example_sentences') %>
       <section class="section">
-	<h2 class="section-title">追加例文 <small class="sub-title">(Additional Example Sentences)</small></h2>
+	<h2 class="section-title">追加例文</h2>
 	<ul class="additional-example-list">
           <% @word_data['example_sentences'].each do |ex_sentence| %>
           <li class="additional-example-item">
