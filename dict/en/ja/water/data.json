@@ -213,12 +213,12 @@
 	}
     ],
     "etymology": {
-	"value": "古英語の「wæter」(名詞)、「wætrian」(動詞)に由来。ゲルマン祖語の「*watar」(名詞)、「*watrōjanan」(動詞)に遡る。インド・ヨーロッパ祖語の「*wodor」または「*wed-」(水、濡れた)に関連し、多くの印欧語族の言語（例: ギリシャ語の「hydor」、ロシア語の「voda」、ラテン語の「unda」(波)）と共通の語源を持つ。",
+	"value": "古英語の「wæter」(名詞)、「wætrian」(動詞)に由来。ゲルマン祖語の「*watar」(名詞)、「*watrōjanan」(動詞)に遡る。インド・ヨーロッパ祖語の「*wodor」または「*wed-」(水、濡れた)に関連し、多くの印欧語族の言語（例: ギリシャ語の「hydor」、ロシア語の「voda」、ラテン語の「unda」(波)）と共通の語源を持つ。"
     },
     "pronunciation": {
 	"ipa_uk": "/ˈwɔː.tər/",
 	"ipa_us": "/ˈwɑː.t̬ɚ/",
-	"syllables": "wa-ter",
+	"syllables": "wa-ter"
     },
     "inflection": {
 	"noun_forms": {
@@ -233,7 +233,7 @@
 	}
     },
     "usage_notes": {
-	"explanation": "「**water**」は基本的な物質である「水」を指す名詞として最もよく使われます。この場合、通常は不可算名詞です。しかし、「海」「湖」「川」などの「水域」や「領海」、あるいは「温泉水」のような特定の種類の水を指す場合、複数形の「**waters**」が用いられます。また、「羊水」(her waters broke) の意味でも複数形です。\n動詞としては、「(植物に)水をやる」、「(動物に)水を飲ませる」という他動詞の用法と、「(目が)涙ぐむ」、「(口が)よだれを垂らす」という自動詞の用法があります。\n比喩的な表現やイディオムも非常に豊富です (例: `in hot water`, `water under the bridge`)。",
+	"explanation": "「**water**」は基本的な物質である「水」を指す名詞として最もよく使われます。この場合、通常は不可算名詞です。しかし、「海」「湖」「川」などの「水域」や「領海」、あるいは「温泉水」のような特定の種類の水を指す場合、複数形の「**waters**」が用いられます。また、「羊水」(her waters broke) の意味でも複数形です。\n動詞としては、「(植物に)水をやる」、「(動物に)水を飲ませる」という他動詞の用法と、「(目が)涙ぐむ」、「(口が)よだれを垂らす」という自動詞の用法があります。\n比喩的な表現やイディオムも非常に豊富です (例: `in hot water`, `water under the bridge`)。"
     },
     "common_mistakes": {
 	"examples": [
@@ -252,7 +252,7 @@
 		"correct": "✓ The police entered the territorial waters of the country. / ✓ The police entered the country's waters.",
 		"note": "「領海」や特定の「水域」を指す場合は、複数形の `waters` を使うのが一般的です。"
             }
-	],
+	]
     },
     "related_words": {
 	"derivatives": [
@@ -283,16 +283,16 @@
             "come hell or high water (何があっても、どんな困難があっても)",
             "keep one's head above water (なんとか借金をせずにやっていく、困難を切り抜ける)",
             "pour/throw cold water on something (～に水を差す、～をけなす)"
-	],
+	]
     },
     "level_frequency": {
 	"CEFR": "A1 (名詞としての基本的な水、動詞「水をやる」)、A2-B1 (watersの用法、他の動詞の意味、基本的なイディオム)",
-	"frequency_google_ngram": "非常に高頻度 (Very high frequency) - 英語の最重要基本語彙の一つ。",
+	"frequency_google_ngram": "非常に高頻度 (Very high frequency) - 英語の最重要基本語彙の一つ。"
     },
     "readability_explanation": {
 	"level": "A1",
 	"text": "「**water**」は、まず「みず」という意味の言葉です。「a glass of water（コップ一杯の水）」のように使います。植物に「みずをやる」ときも「water the plants」と言います。海や川のような広い「みずの場所」を指すときは「waters」と複数形になることもあります。また、悲しいときや煙が目にしみたときに「目からみずが出る（涙ぐむ）」ことを「eyes water」、おいしそうなものを見て「口からみずが出る（よだれが出る）」ことを「mouth water」と言ったりもします。たくさんの使い方がある便利な言葉です。"
-    }
+    },
     "example_sentences": [
 	{
 	    "sentence": "Could I have some **water**, please?",
