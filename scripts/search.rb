@@ -1,13 +1,16 @@
 require 'json'
 
-files = `ls dict/en/ja/*/data.json`.split("\n")
-
 words = `ls dict/en/ja/`.split("\n")
 
 new_words = []
-files.each{|f|
-  desc = JSON.parse(File.open(f).read)
-  unless desc.dig('meanings')
+
+words.each{|w|
+  path = "dict/en/ja/#{w}/data.json"
+  unless File.exist?(path)
+    next
+  end
+  desc = JSON.parse(File.open(path).read)
+  if desc.class != Hash || desc['meanings'].class != Array
     next
   end
   nyms = desc['meanings'].map{|m|
@@ -20,9 +23,15 @@ files.each{|f|
     end
     ans
   }.flatten
-  new_words += nyms - words
+  new_words += nyms
+  new_words.sort!
+  new_words.uniq!
 }
 new_words -= words
+selected = new_words.select{|w|
+  w.match(/^[-a-zA-Z]+$/)
+}.sort.uniq
+pp selected
 
 new_words.select{|w|
   w.match(/^[-a-zA-Z]+$/)
