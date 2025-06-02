@@ -1,5 +1,5 @@
 require 'faraday'
-require 'JSON'
+require 'json'
 
 key = JSON.parse(File.open("secret.json").read)["gemini_key"]
 
@@ -58,7 +58,7 @@ class GeminiClient
       contents: contents,
       generationConfig: {
         responseMimeType: "application/json",
-#        responseSchema: JSON.parse(File.open("schema.json").read)["schema"],
+        #        responseSchema: JSON.parse(File.open("schema.json").read)["schema"],
         temperature: 0.4
       },
       systemInstruction: {
@@ -77,31 +77,50 @@ class GeminiClient
   end
 end
 
-words = `ls dict/en/ja`.split("\n")
-cli = GeminiClient.new(key)
+all = `ls dict/en/ja/`.split("\n")
+words = all.reject{|w|
+  File.exist?("dict/en/ja/#{w}/data.json")
+}
 words.shuffle!
 
-words.each{|word|
-  retried = 0
-  begin
-    dest = "dict/en/ja/#{word}/data.json"
-    if File.exist?(dest)
-      next
+workers = []
+m = Mutex.new
+
+workers = 10.times.map {
+  Thread.new {
+    cli = GeminiClient.new(key)
+    loop do
+      m.lock
+      if words.length == 0
+        m.unlock
+        break
+      end
+      word = words.pop
+      m.unlock
+
+      retried = 0
+      begin
+        dest = "dict/en/ja/#{word}/data.json"
+        if File.exist?(dest)
+          next
+        end
+        data = cli.prompt(word)
+        puts word
+        puts data.to_json
+        File.open("dict/en/ja/#{word}/data.json", "w") {|f|
+          f.write(data.to_json)
+        }
+      rescue => e
+        pp e
+        pp e.backtrace
+        retried += 1
+        if retried < 6
+          puts "retrying #{word} as #{e}"
+          retry
+        end
+        puts "compromised #{word}"
+      end
     end
-    data = cli.prompt(word)
-    puts word
-    puts data.to_json
-    File.open("dict/en/ja/#{word}/data.json", "w") {|f|
-      f.write(data.to_json)
-    }
-  rescue => e
-    pp e
-    pp e.backtrace
-    retried += 1
-    if retried < 6
-      puts "retrying #{word} as #{e}"
-      retry
-    end
-    puts "compromised #{word}"
-  end
+  }
 }
+workers.each{|w| w.join }
