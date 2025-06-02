@@ -86,7 +86,7 @@ words.shuffle!
 workers = []
 m = Mutex.new
 
-workers = 10.times.map {
+workers = 30.times.map {
   Thread.new {
     cli = GeminiClient.new(key)
     loop do
