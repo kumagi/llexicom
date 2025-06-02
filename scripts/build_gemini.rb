@@ -1,5 +1,5 @@
 require 'faraday'
-require 'JSON'
+require 'json'
 
 key = JSON.parse(File.open("secret.json").read)["gemini_key"]
 
