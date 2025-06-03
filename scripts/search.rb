@@ -16,9 +16,9 @@ words.each{|w|
   nyms = desc['meanings'].map{|m|
     ans = []
     if m['synonyms']
-      ans += m['synonyms']
+      ans += m['synonyms'] and m['synonyms'].class == Array
     end
-    if m['antonyms']
+    if m['antonyms'] and m['antonyms'].class == Array
       ans += m['antonyms']
     end
     ans
