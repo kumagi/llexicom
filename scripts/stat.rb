@@ -1,7 +1,7 @@
-all = `ls dict/en/ja/`.split("\n")
+all = Dir.glob("dict/en/ja/*")
 
 words = all.select{|w|
-  File.exist?("dict/en/ja/#{w}/data.json")
+  File.exist?("#{w}/data.json")
 }
 
 puts "All:\t#{all.size} words"

@@ -7,10 +7,9 @@ def load(word)
   binding
 end
 
-exists = `ls dict/en/ja/*/data.json`.split("\n")
-words = exists.map{|f|
-  Regexp.new("dict/en/ja/(.*)/data.json") =~ f
-  $1
+words = Dir.glob("*", base: "dict/en/ja")
+exists = words.select {|d|
+  File.exist?("dict/en/ja/#{d}/data.json")
 }
 
 template = ERB.new(TEMPLATE)
