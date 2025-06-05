@@ -1,10 +1,10 @@
 function meaning_clicked(m) {
-    const body = m.querySelector('.meaning-content');
+    const content = m.parentElement;
+    const body = content.querySelector('.meaning-content');
     if (body) {
 	body.classList.toggle("visible");
     }
-    const title = m.querySelector('.meaning-title');
-    console.log(title)
+    const title = content.querySelector('.meaning-title');
     if (title) {
 	title.classList.toggle("expand");
     }

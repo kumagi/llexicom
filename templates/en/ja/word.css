@@ -66,7 +66,6 @@ h4 {
   justify-content: space-between;
   align-items: center;
   text-align: center;
-  margin-bottom: 20px;
 }
 
 h1 {
@@ -81,7 +80,6 @@ h1 {
     margin: auto;
     color: #888;
     display: flex;
-    margin-bottom: 8px;
     justify-content: center;
 }
 
@@ -132,10 +130,9 @@ h1 {
   box-shadow: 0 2px 5px rgba(0,0,0,0.05);
 }
 
-.meaning-card h3.meaning-title {
-    background: #0300b8;
+.meaning-card .meaning-title {
     background: linear-gradient(90deg,rgba(3, 0, 184, 1) 0%, rgba(4, 0, 255, 1) 100%);
-
+    cursor: pointer;
     color: #fff;
     padding-left: 12px;
     padding-right: 12px;
@@ -150,6 +147,10 @@ h1 {
     gap: 8px;
 }
 
+.meaning-title:hover {
+    filter: brightness(150%);
+}
+
 .meaning-card .meaning-title.expand {
     border-top-left-radius: 8px;
     border-top-right-radius: 8px;
@@ -162,20 +163,24 @@ h1 {
 }
 
 .part-of-speech {
-  background-color: #0cc0e0; /* cyan */
-  color: #fff;
-  padding: 4px 8px;
-  border-radius: 5px;
-  font-size: 0.9em;
+    background-color: #0c80b0;
+    color: #fff;
+    padding: 0px 4px;
+    border-radius: 5px;
+    font-size: 0.9em;
+}
+
+.svg-box {
+    margin: 10px;
 }
 
 .transitivity-badge {
-  background-color: #6c757d; /* gray */
-  color: #fff;
-  padding: 4px 8px;
-  border-radius: 5px;
-  font-size: 0.9em;
-  margin-left: 10px;
+    background-color: #6c85fd;
+    color: #fff;
+    padding: 4px 8px;
+    border-radius: 5px;
+    font-size: 0.9em;
+    margin-left: 10px;
 }
 
 .meaning-content {
