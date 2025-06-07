@@ -1,18 +1,8 @@
-const Hogan = require('hogan.js')
-import templateString from './word.mustache';
 import { Finder } from './finder'
 import { WordData } from './word_data';
+import { render } from './render'
 
-function parseMarkdownBold(text: string) {
-    return text.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
-}
-
-const template = Hogan.compile(templateString);
-const render = (data: WordData, template: any): string => {
-    data.readability_explanation.text = parseMarkdownBold(data.readability_explanation.text);
-    data.usage_notes.explanation = parseMarkdownBold(data.usage_notes.explanation)
-    return template.render(data);
-}
+const finder = new Finder();
 
 const performSearch = () => {
     const searchInput = document.getElementById('searchInput');
@@ -32,7 +22,6 @@ const performSearch = () => {
     }, '', newUrl);
 }
 
-const finder = new Finder();
 const performSearchImpl = async (searchTerm: string) => {
     if (searchTerm === '') {
 	console.log("empty query")
@@ -47,7 +36,7 @@ const performSearchImpl = async (searchTerm: string) => {
         resultsContainer.innerHTML = '<p>一致する単語は見つかりませんでした。</p>';
 	return;
     } else {
-        resultsContainer.innerHTML = render(data, template);
+        resultsContainer.innerHTML = render(data);
 	const meanings = document.getElementsByClassName("meaning-title");
 	for (let i = 0; i < meanings.length; i++) {
 	    meanings[i].addEventListener('click', (m) => {
@@ -90,11 +79,11 @@ function load() {
     }
 };
 
-window.addEventListener('pageshow', async (event) => {
+window.addEventListener('pageshow', (event) => {
     load();
 });
 
-window.addEventListener('popstate', async (event) => {
+window.addEventListener('popstate', (event) => {
     const searchInput = document.getElementById('searchInput');
     if (event.state && searchInput instanceof HTMLInputElement) {
 	const query = event.state.query || '';
