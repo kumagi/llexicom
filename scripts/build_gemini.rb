@@ -3,8 +3,8 @@ require_relative './gemini_client'
 
 key = JSON.parse(File.open("secret.json").read)["gemini_key"]
 
-all = `ls dict/en/ja/`.split("\n")
-words = all.reject{|w|
+all = Dir.glob("*", base: "dict/en/ja").sort
+words = all.reject {|w|
   File.exist?("dict/en/ja/#{w}/data.json")
 }
 words.shuffle!
@@ -29,7 +29,7 @@ workers = 30.times.map {
         dest = "dict/en/ja/#{word}/data.json"
         next if File.exist?(dest)
         File.open("dict/en/ja/#{word}/data.json", "w") {|f|
-          data = build(cli, word)
+          data = cli.prompt(word)
           f.write(data.to_json)
         }
       rescue => e

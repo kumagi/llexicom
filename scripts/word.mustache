@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<div class="container">
+  <div class="header-section">
+    <h1 class="word-title">{{word}}</h1>
+  </div>
+
+  {{#pronunciation}}
+  <div class="pronounce-section">
+    {{#ipa}}
+    <div class="ipa">{{ipa}}</div>
+    {{/ipa}}
+
+    {{#ipa_uk}}
+    <div class="ipa">(英){{ipa_uk}}</div>
+    {{/ipa_uk}}
+
+    {{#ipa_us}}
+    <div class="ipa">(米){{ipa_us}}</div>
+    {{/ipa_us}}
+
+    {{#syllables}}
+    <div class="syllable">
+      ({{syllables}})
+    </div>
+    {{/syllables}}
+  </div>
+  {{/pronunciation}}
+
+  <div class="priority-box">
+    <span class="priority">{{priority}}</span>
+  </div>
+  
+  {{#meanings}}
+  <section class="section">
+    {{#.}}
+    <div class="meaning-card">
+      <div class="meaning-title">
+        <div class="number">
+          {{_index_plus_1}}.
+        </div>
+        <span class="part-of-speech">
+          {{part_of_speech_translated}}
+        </span>
+        <div class="definition-box">
+          <p class="definition">{{definition}}</p>
+        </div>
+        {{#transitivity_translated}}
+        <span class="transitivity-badge">
+          {{.}}
+        </span>
+        {{/transitivity_translated}}
+      </div>
+      <div class="meaning-content">
+        <p class="english-definition">{{english_definition}}</p>
+        {{#examples}}
+        {{^empty}}
+        <ul class="example-list">
+          {{#.}}
+          <li class="example-item">
+            <p class="sentence">"{{sentence}}"</p>
+            <p class="translation"><em>{{translation}}</em></p>
+          </li>
+          {{/.}}
+        </ul>
+        {{/empty}}
+        {{/examples}}
+
+        <div class="related-terms-group">
+          <div class="related-column">
+            <h4>コロケーション:</h4>
+            <ul class="simple-list">
+              {{#collocations}}
+              {{^empty}}
+              <li>{{.}}</li>
+              {{/empty}}
+              {{/collocations}}
+            </ul>
+          </div>
+          <div class="related-column">
+            <h4>類義語:</h4>
+            <ul class="simple-list">
+              {{#synonyms}}
+              {{^empty}}
+              <li>{{.}}</li>
+              {{/empty}}
+              {{/synonyms}}
+            </ul>
+          </div>
+          <div class="related-column">
+            <h4>対義語:</h4>
+            <ul class="simple-list">
+              {{#antonyms}}
+              {{^empty}}
+              <li>{{.}}</li>
+              {{/empty}}
+              {{/antonyms}}
+	    </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    {{/.}}
+  </section>
+  {{/meanings}}
+
+  {{#readability_explanation}}
+  <section class="section">
+    <h2 class="section-title">解説</h2>
+    <div class="readability-explanation">
+      <p class="readability-level"><strong>対象レベル:</strong> {{level}}</p>
+      <p>{{{readability_explanation.text}}}</p>
+    </div>
+  </section>
+  {{/readability_explanation}}
+
+  {{#etymology}}
+  <section class="section">
+    <h2 class="section-title">語源</h2>
+    <p>{{value}}</p>
+  </section>
+  {{/etymology}}
+
+  {{#inflection}}
+  {{#has_inflection_forms}} {{! Helper to check if either noun_forms or verb_forms exists }}
+  <section class="section">
+    <h2 class="section-title">活用</h2>
+    {{#noun_forms}}
+    <h3>名詞の形:</h3>
+    <dl class="definition-list">
+      <dt>単数形</dt>
+      <dd>{{singular}}</dd>
+      <dt>複数形</dt>
+      <dd>{{plural}}</dd>
+    </dl>
+    {{/noun_forms}}
+    {{#verb_forms}}
+    <h3>動詞の形:</h3>
+    <dl class="definition-list">
+      <dt>現在形</dt>
+      <dd>{{present_simple_joined}}</dd>
+      <dt>過去形</dt>
+      <dd>{{past_simple}}</dd>
+      <dt>過去分詞</dt>
+      <dd>{{past_participle}}</dd>
+      <dt>現在分詞</dt>
+      <dd>{{present_participle}}</dd>
+    </dl>
+    {{/verb_forms}}
+  </section>
+  {{/has_inflection_forms}}
+  {{/inflection}}
+
+  {{#usage_notes}}
+  <section class="section">
+    <h2 class="section-title">使用上の注意</h2>
+    <div class="note-box">
+      {{{usage_notes.explanation}}}
+    </div>
+  </section>
+  {{/usage_notes}}
+
+  {{#common_mistakes}}
+  {{#examples}}
+  {{^empty}}
+  <section class="section">
+    <h2 class="section-title">よくある間違い</h2>
+    {{#.}}
+    <div class="mistake-item">
+      <h4>間違い {{_index_plus_1}}:</h4>
+      <p><span class="incorrect-example">{{incorrect}}</span></p>
+      <p><span class="correct-example">{{correct}}</span></p>
+      <p class="note-text"><strong>補足:</strong> {{note}}</p>
+    </div>
+    {{/.}}
+  </section>
+  {{/empty}}
+  {{/examples}}
+  {{/common_mistakes}}
+
+  {{#related_words}}
+  {{#has_related_words}} {{! Helper to check if any of the sub-arrays exist }}
+  <section class="section">
+    <h2 class="section-title">関連語句 <small class="sub-title">(Related Words)</small></h2>
+    <div class="related-terms-group">
+      {{#derivatives}}
+      {{^empty}}
+      <div class="related-column">
+        <h3>派生語:</h3>
+        <ul class="simple-list">
+          {{#.}}
+          <li>{{.}}</li>
+          {{/.}}
+        </ul>
+      </div>
+      {{/empty}}
+      {{/derivatives}}
+      {{#phrasal_verbs}}
+      {{^empty}}
+      <div class="related-column">
+        <h3>句動詞:</h3>
+        <ul class="simple-list">
+          {{#.}}
+          <li>{{.}}</li>
+          {{/.}}
+        </ul>
+      </div>
+      {{/empty}}
+      {{/phrasal_verbs}}
+      {{#idioms_phrases}}
+      {{^empty}}
+      <div class="related-column">
+        <h3>イディオム・慣用句:</h3>
+        <ul class="simple-list">
+          {{#.}}
+          <li>{{.}}</li>
+          {{/.}}
+        </ul>
+      </div>
+      {{/empty}}
+      {{/idioms_phrases}}
+    </div>
+  </section>
+  {{/has_related_words}}
+  {{/related_words}}
+
+  {{#level_frequency}}
+  <section class="section">
+    <h2 class="section-title">レベル・頻度</h2>
+    <dl class="definition-list">
+      <dt>CEFR</dt>
+      <dd>{{CEFR}}</dd>
+      <dt>Google Ngram 頻度</dt>
+      <dd>{{frequency_google_ngram}}</dd>
+    </dl>
+  </section>
+  {{/level_frequency}}
+
+  <section class="section">
+    <h2 class="section-title">追加例文</h2>
+    <ul class="additional-example-list">
+      {{#example_sentences}}
+      {{^empty}}
+      {{#.}}
+      <li class="additional-example-item">
+        <p class="sentence">"{{{sentence}}}"</p>
+        <p class="translation"><em>{{translation}}</em></p>
+        <p class="meta-info">
+          タイプ: <span class="badge">{{type}}</span>,
+          カテゴリ: <span class="badge">{{meaning_category}}</span>
+        </p>
+      </li>
+      {{/.}}
+      {{/empty}}
+      {{/example_sentences}}
+    </ul>
+  </section>
+</div>

@@ -1,0 +1,30 @@
+{
+    "name": "llexicom",
+    "version": "1.0.0",
+    "description": "",
+    "homepage": "https://github.com/kumagi/llexicom#readme",
+    "bugs": {
+        "url": "https://github.com/kumagi/llexicom/issues"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/kumagi/llexicom.git"
+    },
+    "license": "MIT",
+    "author": "kumagi",
+    "type": "commonjs",
+    "main": "bin/index.js",
+    "scripts": {
+        "tsc": "tsc",
+        "build": "webpack"
+    },
+    "devDependencies": {
+        "ts-loader": "^9.5.2",
+        "webpack": "^5.99.9",
+        "webpack-cli": "^6.0.1"
+    },
+    "dependencies": {
+        "hogan": "^1.0.2",
+        "json-schema-to-ts": "^3.1.1"
+    }
+}
