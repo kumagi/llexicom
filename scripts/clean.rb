@@ -21,16 +21,17 @@ exists.each{|w|
     if result['word'].nil? or result['word'].empty?
       puts "invalid #{w}"
       raise RuntimeException
-      end
+    end
     puts "#{w} vs #{result['word']} unmatched"
-    new_path = "#{BASE}/#{result['word']}"
-    puts "#{w} should be stored #{new_path}"
-    #`rm -rf #{BASE}/#{w}`
-    #`mkdir -p #{new_path}`
-    #`touch #{new_path}/.keep`
-    #File.open("#{new_path}/data.json", "w").write(result.to_json)
-  rescue
-    puts "cannot read #{w}"
-    #`rm -rf #{BASE}/#{w}/data.json`
+    new_filename = encode_filename(result['word'])
+    new_path = "#{BASE}/#{new_filename}"
+    puts "#{w} should be stored #{new_filename}"
+    `rm -rf #{BASE}/#{w}`
+    `mkdir -p #{new_path}`
+    `touch #{new_path}/.keep`
+    File.open("#{new_path}/data.json", "w").write(result.to_json)
+  rescue => e
+    puts "cannot read #{w} #{e}"
+    `rm -rf #{BASE}/#{w}/data.json`
   end
 }

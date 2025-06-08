@@ -2,11 +2,31 @@ require 'json'
 require 'workers'
 require 'zlib'
 
+def encode_filename(word)
+  word.gsub(/[A-Z]/) { |c| "_#{c}_" }
+end
+
+def decode_filename(encoded)
+  encoded.gsub(/_([A-Z])_/) { $1 }
+end
+
 all = Dir.glob("*", base: "dict/en/ja")
 
 words = all.select{|w|
   File.exist?("dict/en/ja/#{w}/data.json")
 }.sort!
+words_decoded = words.inject({}){|result, w|
+  key = decode_filename(w).downcase
+  pp key
+  if result[key].nil?
+    result[key] = []
+  end
+  result[key] << w
+  result
+}
+
+pp words_decoded
+exit
 
 `mkdir -p docs`
 

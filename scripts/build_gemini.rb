@@ -20,19 +20,16 @@ def decode_filename(encoded)
 end
 
 workers = []
-m = Mutex.new
+corrected = {}
 
 workers = 30.times.map {
   Thread.new {
     cli = GeminiClient.new(key)
     loop do
-      m.lock
       if words.length == 0
-        m.unlock
         break
       end
       word = words.pop
-      m.unlock
 
       retried = 0
       begin
@@ -49,6 +46,9 @@ workers = 30.times.map {
             File.open("#{new_path}/data.json", "w").write(data.to_json)
             puts "wrote #{new_path}"
           end
+          `rm -rf #{BASE}/#{word}`
+
+          corrected[decoded_word] = data['word'] if data['word']
           next
         end
         File.open("#{BASE}/#{word}/data.json", "w").write(data.to_json)
@@ -66,3 +66,5 @@ workers = 30.times.map {
   }
 }
 workers.each{|w| w.join }
+
+File.open("corrected.json", "w").write(corrected.to_json)

@@ -5,6 +5,7 @@ BASE="dict/en/ja"
 words = Dir.glob("*", base: BASE).sort.select{|w|
   File.exist?("#{BASE}/#{w}")
 }
+exists = words.clone
 
 new_words = []
 
@@ -50,9 +51,9 @@ workers = parallel.times.map{|n|
 workers.each{|w| w.join }
 
 new_words = out.map{|m| m.to_a}.reduce([], :+).sort.uniq.select{|w|
-  w.match(/^[-a-zA-Z]+$/)
+  w.match(/^[\-a-zA-Z]+$/)
 } - exists
-# pp new_words
+p "new words #{new_words.size}"
 
 def encode_filename(word)
   word.gsub(/[A-Z]/) { |c| "_#{c}_" }
