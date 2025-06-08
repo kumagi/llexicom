@@ -32,7 +32,7 @@ const performSearchImpl = async (searchTerm: string) => {
 	console.error("No result box");
 	return;
     }
-    const data: WordData | undefined = await finder.find(searchTerm);
+    const data: WordData[] | undefined = await finder.find(searchTerm);
     if (data === undefined) {
         resultsContainer.innerHTML = '<p>一致する単語は見つかりませんでした。</p>';
 	return;

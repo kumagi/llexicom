@@ -2,11 +2,10 @@ import { WordData } from './word_data';
 
 export class Finder {
     private readonly table: string[];
-    private cachedDictionary: {[key: string]: WordData };
+    private cachedDictionary: {[key: string]: WordData[] };
 
     public constructor() {
 	this.table = require('./table').table;
-	console.log(this.table)
 	this.cachedDictionary = {};
     }
 
@@ -24,14 +23,16 @@ export class Finder {
 	return this.table[left];
     }
 
-    public async find(key: string): Promise<WordData | undefined> {
-	if (this.cachedDictionary[key]) {
-	    console.log(`cache hit for ${key} as ${this.cachedDictionary[key]}`)
-	    return this.cachedDictionary[key];
+    // Input key will be handled in case-insensitive.
+    public async find(key: string): Promise<WordData[] | undefined> {
+	const canonical_key = key.toLowerCase()
+	if (this.cachedDictionary[canonical_key]) {
+	    console.log(`cache hit for ${canonical_key}`)
+	    return this.cachedDictionary[canonical_key];
 	}
 	try {
-	    const nearest_key = this.nearestIndex(key)
-	    console.log(`fetching ${nearest_key}`)
+	    const nearest_key = this.nearestIndex(canonical_key)
+	    console.log(`fetching ${nearest_key} for ${canonical_key}`)
             const response = await fetch(`${nearest_key}.json.lz`, {
 		method: 'GET',
 		headers: {
@@ -53,7 +54,7 @@ export class Finder {
 		throw new Error(`HTTP error! status: ${response.status}`);
             }
 	    this.cachedDictionary = { ...this.cachedDictionary, ...dict };
-	    return this.cachedDictionary[key];
+	    return this.cachedDictionary[canonical_key];
 	} catch (error) {
             console.error('Error fetching dictionary data:', error);
 	    return undefined;
