@@ -1,8 +1,10 @@
 require 'json'
 require 'set'
+BASE="dict/en/ja"
 
-words = Dir.glob("*", base: "dict/en/ja").sort
-exists = words.clone
+words = Dir.glob("*", base: BASE).sort.select{|w|
+  File.exist?("#{BASE}/#{w}")
+}
 
 new_words = []
 
@@ -23,10 +25,7 @@ workers = parallel.times.map{|n|
       print("\rRest: #{words.size} directories")
       lk.unlock
 
-      path = "dict/en/ja/#{w}/data.json"
-      unless File.exist?(path)
-        next
-      end
+      path = "#{BASE}/#{w}/data.json"
       desc = JSON.parse(File.open(path).read)
       if desc.class != Hash || desc['meanings'].class != Array
         next
@@ -55,6 +54,10 @@ new_words = out.map{|m| m.to_a}.reduce([], :+).sort.uniq.select{|w|
 } - exists
 # pp new_words
 
+def encode_filename(word)
+  word.gsub(/[A-Z]/) { |c| "_#{c}_" }
+end
+
 workers = parallel.times.map{
   Thread.new {
     loop do
@@ -63,7 +66,7 @@ workers = parallel.times.map{
         lk.unlock
         break
       end
-      w = new_words.pop()
+      w = encode_filename(new_words.pop())
       lk.unlock
       `mkdir -p dict/en/ja/#{w}`
       `touch dict/en/ja/#{w}/.keep`

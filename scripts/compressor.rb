@@ -2,21 +2,21 @@ require 'json'
 require 'workers'
 require 'zlib'
 
-all = Dir.glob("dict/en/ja/*")
+all = Dir.glob("*", base: "dict/en/ja")
 
 words = all.select{|w|
-  File.exist?("#{w}/data.json")
+  File.exist?("dict/en/ja/#{w}/data.json")
 }.sort!
+
 `mkdir -p docs`
 
 pool = Workers::Pool.new(on_exception: proc {|e|
                            puts "A worker encountered an exception: #{e.class}: #{e.message}"
                          })
-
 words.each_slice(100) {|batch|
   pool.perform do
     jsons = batch.map{|w|
-      result = JSON.parse(File.open("#{w}/data.json").read)
+      result = JSON.parse(File.open("dict/en/ja/#{w}/data.json").read)
       if result.nil?
         puts "failed to parse #{w}"
       end

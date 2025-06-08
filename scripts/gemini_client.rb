@@ -61,7 +61,7 @@ class GeminiClient
       systemInstruction: {
         role: "system",
         parts: [
-          text: "Output Japanese translated word description for dictionary. Please fill JSON fields as many as posssible. You MUST ALWAYS fill the pronounciation field with syllables."
+          text: "Output Japanese translated word description for dictionary. Please fill JSON fields as many as posssible. You MUST ALWAYS fill the pronounciation field with syllables. Also you MUST KEEP case sensitively for the specified word, handle the word rigorously."
         ]
       }
     }

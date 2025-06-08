@@ -1,13 +1,23 @@
 require 'json'
 require_relative './gemini_client'
 
+BASE="dict/en/ja"
 key = JSON.parse(File.open("secret.json").read)["gemini_key"]
 
-all = Dir.glob("*", base: "dict/en/ja").sort
+all = Dir.glob("*", base: BASE).sort
+
 words = all.reject {|w|
-  File.exist?("dict/en/ja/#{w}/data.json")
+  File.exist?("#{BASE}/#{w}/data.json")
 }
 words.shuffle!
+
+def encode_filename(word)
+  word.gsub(/[A-Z]/) { |c| "_#{c}_" }
+end
+
+def decode_filename(encoded)
+  encoded.gsub(/_([A-Z])_/) { $1 }
+end
 
 workers = []
 m = Mutex.new
@@ -26,12 +36,22 @@ workers = 30.times.map {
 
       retried = 0
       begin
-        dest = "dict/en/ja/#{word}/data.json"
+        dest = "#{BASE}/#{word}/data.json"
         next if File.exist?(dest)
-        File.open("dict/en/ja/#{word}/data.json", "w") {|f|
-          data = cli.prompt(word)
-          f.write(data.to_json)
-        }
+        decoded_word = decode_filename(word)
+        data = cli.prompt(decoded_word)
+        if data['word'] != decoded_word
+          puts "#{decoded_word} vs #{data['word']} unmatch"
+          new_path = "#{BASE}/#{encode_filename(data['word'])}"
+          unless File.exist?("#{new_path}/data.json")
+            `mkdir -p #{new_path}`
+            `touch #{new_path}/.keep`
+            File.open("#{new_path}/data.json", "w").write(data.to_json)
+            puts "wrote #{new_path}"
+          end
+          next
+        end
+        File.open("#{BASE}/#{word}/data.json", "w").write(data.to_json)
       rescue => e
         pp e
         pp e.backtrace

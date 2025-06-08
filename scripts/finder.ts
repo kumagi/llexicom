@@ -6,6 +6,7 @@ export class Finder {
 
     public constructor() {
 	this.table = require('./table').table;
+	console.log(this.table)
 	this.cachedDictionary = {};
     }
 
@@ -29,8 +30,9 @@ export class Finder {
 	    return this.cachedDictionary[key];
 	}
 	try {
-	    const requestUrl = this.nearestIndex(key) + ".json.lz"
-            const response = await fetch(requestUrl, {
+	    const nearest_key = this.nearestIndex(key)
+	    console.log(`fetching ${nearest_key}`)
+            const response = await fetch(`${nearest_key}.json.lz`, {
 		method: 'GET',
 		headers: {
                     'Accept-Encoding': 'br'
@@ -40,7 +42,7 @@ export class Finder {
 
 	    const readableStream = response.body;
 	    if (readableStream === null) {
-		console.log("no readable stream")
+		console.error("no readable stream")
 		return undefined;
 	    }
 	    const decompressedStream = readableStream.pipeThrough(ds);

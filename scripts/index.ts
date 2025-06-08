@@ -24,11 +24,12 @@ const performSearch = () => {
 
 const performSearchImpl = async (searchTerm: string) => {
     if (searchTerm === '') {
-	console.log("empty query")
+	console.log("empty query");
         return;
     }
     const resultsContainer: Element | null = document.getElementById('results');
     if (resultsContainer === null) {
+	console.error("No result box");
 	return;
     }
     const data: WordData | undefined = await finder.find(searchTerm);
