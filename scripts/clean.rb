@@ -25,8 +25,19 @@ exists.each{|w|
     puts "#{w} vs #{result['word']} unmatched"
     new_filename = encode_filename(result['word'])
     new_path = "#{BASE}/#{new_filename}"
+    new_datafile = "#{new_path}/data.json"
+    if File.exist?(new_path)
+      begin
+        content = JSON.parse(File.open(new_datafile).read)
+        puts "valid content already exists in #{content['word']}"
+      rescue
+        File.open(new_datafile).write(result.to_json)
+        puts "replaced #{new_datafile} with content of #{filename}"
+      end
+    end
     puts "#{w} should be stored #{new_filename}"
     `rm -rf #{BASE}/#{w}`
+    puts "rm -rf #{BASE}/#{w}"
     `mkdir -p #{new_path}`
     `touch #{new_path}/.keep`
     File.open("#{new_path}/data.json", "w").write(result.to_json)

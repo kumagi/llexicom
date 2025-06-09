@@ -9,6 +9,7 @@ words.reject {|w|
   `rm -rf #{BASE}/#{w}`
 }
 
+# non alphabet filepath will be removed
 words.select {|w|
   /^[_\-a-zA-Z]+$/.match(w).nil?
 }.each{|w|

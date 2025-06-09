@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<div class="container">
+<div class="word-container">
   <div class="header-section">
     <h1 class="word-title">{{word}}</h1>
   </div>
@@ -51,52 +51,54 @@
         {{/transitivity_translated}}
       </div>
       <div class="meaning-content">
-        <p class="english-definition">{{english_definition}}</p>
-        {{#examples}}
-        {{^empty}}
-        <ul class="example-list">
-          {{#.}}
-          <li class="example-item">
-            <p class="sentence">"{{sentence}}"</p>
-            <p class="translation"><em>{{translation}}</em></p>
-          </li>
-          {{/.}}
-        </ul>
-        {{/empty}}
-        {{/examples}}
+	<div class="content">
+          <p class="english-definition">{{english_definition}}</p>
+          {{#examples}}
+          {{^empty}}
+          <ul class="example-list">
+            {{#.}}
+            <li class="example-item">
+              <p class="sentence">"{{sentence}}"</p>
+              <p class="translation"><em>{{translation}}</em></p>
+            </li>
+            {{/.}}
+          </ul>
+          {{/empty}}
+          {{/examples}}
 
-        <div class="related-terms-group">
-          <div class="related-column">
-            <h4>コロケーション:</h4>
-            <ul class="simple-list">
-              {{#collocations}}
-              {{^empty}}
-              <li>{{.}}</li>
-              {{/empty}}
-              {{/collocations}}
-            </ul>
+          <div class="related-terms-group">
+            <div class="related-column">
+              <h4>コロケーション:</h4>
+              <ul class="simple-list">
+		{{#collocations}}
+		{{^empty}}
+		<li>{{.}}</li>
+		{{/empty}}
+		{{/collocations}}
+              </ul>
+            </div>
+            <div class="related-column">
+              <h4>類義語:</h4>
+              <ul class="simple-list">
+		{{#synonyms}}
+		{{^empty}}
+		<li>{{.}}</li>
+		{{/empty}}
+		{{/synonyms}}
+              </ul>
+            </div>
+            <div class="related-column">
+              <h4>対義語:</h4>
+              <ul class="simple-list">
+		{{#antonyms}}
+		{{^empty}}
+		<li>{{.}}</li>
+		{{/empty}}
+		{{/antonyms}}
+	      </ul>
+            </div>
           </div>
-          <div class="related-column">
-            <h4>類義語:</h4>
-            <ul class="simple-list">
-              {{#synonyms}}
-              {{^empty}}
-              <li>{{.}}</li>
-              {{/empty}}
-              {{/synonyms}}
-            </ul>
-          </div>
-          <div class="related-column">
-            <h4>対義語:</h4>
-            <ul class="simple-list">
-              {{#antonyms}}
-              {{^empty}}
-              <li>{{.}}</li>
-              {{/empty}}
-              {{/antonyms}}
-	    </ul>
-          </div>
-        </div>
+	</div>
       </div>
     </div>
     {{/.}}
