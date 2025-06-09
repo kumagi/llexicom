@@ -3,7 +3,6 @@ body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background-color: #eee;
     margin: 0;
-    padding: 10px;
     display: flex;
     justify-content: center;
     align-items: flex-start;
@@ -16,6 +15,7 @@ body {
     box-shadow: 0 0 15px rgba(0,0,0,0.05);
     box-sizing: border-box;
     padding: 20px;
+    margin: 10px;
     display: flex;
     gap: 12px;
     flex-direction: column;
@@ -63,6 +63,7 @@ h1 {
     background-color: #007bff;
     color: white;
     height: 54px;
+    min-width: 100px;
     border: none;
     border-radius: 8px;
     font-size: 1.1em;
@@ -443,10 +444,46 @@ h1 {
     white-space: nowrap;
 }
 
+.suggestions-container {
+    margin-top: 1rem;
+    padding: 1rem;
+    background: #f9f9f9;
+    border-radius: 0.75rem;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+.suggestions-title {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 0.75rem;
+    color: #333;
+}
+
+.word-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.word-tag {
+    text-decoration: none;
+    padding: 0.4rem 0.8rem;
+    background-color: #e0f0ff;
+    color: #0066cc;
+    border-radius: 999px;
+    font-size: 0.95rem;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.word-tag:hover {
+    background-color: #cce4ff;
+    color: #004b99;
+}
+
 @media (max-width: 480px) {
     .container {
-	margin: 4px 8px;
-	padding: 20px;
+	margin: 4px 4px;
+	padding: 10px;
     }
     h1 {
 	font-size: 2.2rem;
@@ -474,6 +511,9 @@ h1 {
     }
     .section {
 	min-height: 30px;
+    }
+    .meaning-tile {
+	height: 
     }
     .related-column {
 	min-width: unset; /* Remove min-width for small screens */

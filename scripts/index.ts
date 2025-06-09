@@ -1,6 +1,6 @@
 import { Finder } from './finder'
 import { WordData } from './word_data';
-import { render } from './render'
+import { render, renderNotfoundMessage } from './render'
 
 const finder = new Finder();
 
@@ -16,7 +16,7 @@ const performSearch = () => {
     }
     performSearchImpl(searchTerm);
 
-    const newUrl = '?query=' + searchTerm;
+    const newUrl = `?query=${searchTerm}`;
     history.pushState({
 	query: searchTerm
     }, '', newUrl);
@@ -34,7 +34,8 @@ const performSearchImpl = async (searchTerm: string) => {
     }
     const data: WordData[] | undefined = await finder.find(searchTerm);
     if (data === undefined) {
-        resultsContainer.innerHTML = '<p>一致する単語は見つかりませんでした。</p>';
+	const candidates = await finder.nearby(searchTerm, 100);
+        resultsContainer.innerHTML = renderNotfoundMessage(searchTerm, candidates);
 	return;
     } else {
         resultsContainer.innerHTML = render(data);

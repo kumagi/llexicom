@@ -9,21 +9,33 @@ export class Finder {
 	this.cachedDictionary = {};
     }
 
-    public nearestIndex(key: string): string {
+    public nearestIndex(key: string, table: string[] = this.table): number {
 	let left = -1;
-	let right = this.table.length;
+	let right = table.length;
 	while (right - left > 1) {
             const mid = Math.floor(left + (right - left) / 2);
-            if (this.table[mid] > key) {
+            if (table[mid] > key) {
 		right = mid;
 	    } else {
 		left = mid;
 	    }
 	}
-	return this.table[left];
+	return left;
     }
 
-    // Input key will be handled in case-insensitive.
+    // Returns `count` of words which nears specified `key` in dictionary.
+    public async nearby(key: string, count: number): Promise<string[]> {
+	const _ = await this.find(key);  // Call this just for populate the cache.
+	const keys = Object.keys(this.cachedDictionary).sort();
+	const index = this.nearestIndex(key, keys);
+	console.log(`${keys} is ${keys.length}`)
+	console.log(`${Math.max(0, index - (count / 2))} ${index + (count / 2) + 1}`)
+	return keys.slice(Math.max(0, index - (count / 2)),
+			  index + (count / 2) + 1)
+    }
+
+    // Returns single word data which exactly matches specified `key`.
+    // The `key` is case-insensitive.
     public async find(key: string): Promise<WordData[] | undefined> {
 	const canonical_key = key.toLowerCase()
 	if (this.cachedDictionary[canonical_key]) {
@@ -31,7 +43,8 @@ export class Finder {
 	    return this.cachedDictionary[canonical_key];
 	}
 	try {
-	    const nearest_key = this.nearestIndex(canonical_key)
+	    const nearest_index = this.nearestIndex(canonical_key)
+	    const nearest_key = this.table[nearest_index];
 	    console.log(`fetching ${nearest_key} for ${canonical_key}`)
             const response = await fetch(`${nearest_key}.json.lz`, {
 		method: 'GET',
