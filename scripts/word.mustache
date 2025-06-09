@@ -36,7 +36,7 @@
     <div class="meaning-card">
       <div class="meaning-title">
         <div class="number">
-          {{_index_plus_1}}.
+          {{index_plus_1}}.
         </div>
         <span class="part-of-speech">
           {{part_of_speech_translated}}
@@ -46,7 +46,7 @@
         </div>
         {{#transitivity_translated}}
         <span class="transitivity-badge">
-          {{.}}
+          {{transitivity_translated}}
         </span>
         {{/transitivity_translated}}
       </div>
@@ -247,7 +247,7 @@
         <p class="sentence">"{{{sentence}}}"</p>
         <p class="translation"><em>{{translation}}</em></p>
         <p class="meta-info">
-          タイプ: <span class="badge">{{type}}</span>,
+          タイプ: <span class="badge">{{type_translated}}</span>,
           カテゴリ: <span class="badge">{{meaning_category}}</span>
         </p>
       </li>
