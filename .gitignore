@@ -1,7 +1,6 @@
 *~
 *.txt
 .ruby-version
-docs
 bin
 keys.yml
 keys.json
