@@ -1,5 +1,5 @@
 require 'json'
-require_relative './gemini_client'
+require_relative './deepseek_client'
 
 BASE="dict/en/ja"
 keys = JSON.parse(File.open("secret.json").read)
@@ -29,7 +29,7 @@ end
 begin
   workers = 30.times.map {
     Thread.new {
-      cli = GeminiClient.new(keys["gemini_key"])
+      cli = DeepseekClient.new(keys["deepseek_key"])
       loop do
         if words.length == 0
           break
@@ -46,16 +46,16 @@ begin
             puts "#{decoded_word} vs #{data['word']} unmatch"
             new_path = "#{BASE}/#{encode_filename(data['word'])}"
             unless File.exist?("#{new_path}/data.json")
-              `mkdir -p #{new_path}`
+              `mkdir -p '#{new_path}'`
               `touch #{new_path}/.keep`
               File.open("#{new_path}/data.json", "w").write(data.to_json)
               puts "wrote #{new_path}"
             end
             `rm -rf #{BASE}/#{word}`
-
             corrected[decoded_word] = data['word'] if data['word']
             next
           end
+          puts "fetched #{word}"
           File.open("#{BASE}/#{word}/data.json", "w").write(data.to_json)
         rescue => e
           pp e
