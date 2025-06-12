@@ -266,6 +266,7 @@ h1 {
     padding: 0px 4px;
     border-radius: 5px;
     font-size: 0.9em;
+    min-width: 30px;
 }
 
 .svg-box {

@@ -1,0 +1,114 @@
+body {
+  background-color: #f0f2f5;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  margin: 0;
+}
+
+.container {
+  width: 100%;
+  max-width: 500px;
+  text-align: center;
+  padding: 20px;
+}
+
+header {
+  margin-bottom: 2rem;
+}
+
+h1 {
+  color: #1c1e21;
+}
+
+.score {
+  font-size: 1.2rem;
+  color: #606770;
+  font-weight: bold;
+}
+
+.quiz-card {
+  background-color: #ffffff;
+  border-radius: 8px;
+  padding: 2rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.question-word {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #1c1e21;
+  margin-bottom: 2rem;
+}
+
+.options-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.option-button {
+  background-color: #e4e6eb;
+  border: none;
+  border-radius: 6px;
+  padding: 1rem;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  color: #050505;
+}
+
+.option-button:hover:not(:disabled) {
+  background-color: #d8dadf;
+}
+
+.option-button:disabled {
+  cursor: not-allowed;
+}
+
+.option-button.correct {
+  background-color: #42b72a;
+  color: white;
+  font-weight: bold;
+}
+
+.option-button.incorrect {
+  background-color: #fa3e3e;
+  color: white;
+  font-weight: bold;
+}
+
+.feedback-container {
+  margin-top: 1.5rem;
+}
+
+.feedback-text {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+.correct-text {
+  color: #42b72a;
+}
+.incorrect-text {
+  color: #fa3e3e;
+}
+
+
+.next-button {
+  margin-top: 1rem;
+  background-color: #1877f2;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 0.8rem 1.5rem;
+  font-size: 1.1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.next-button:hover {
+  background-color: #166fe5;
+}
