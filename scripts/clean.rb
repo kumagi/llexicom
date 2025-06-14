@@ -31,14 +31,15 @@ exists.each{|w|
         content = JSON.parse(File.open(new_datafile).read)
         puts "valid content already exists in #{content['word']}"
       rescue
-        File.open(new_datafile).write(result.to_json)
+        `mkdir -p '#{new_path}'`
+        File.open(new_datafile, "w").write(result.to_json)
         puts "replaced #{new_datafile} with content of #{filename}"
       end
     end
     puts "#{w} should be stored #{new_filename}"
     `rm -rf #{BASE}/#{w}`
     puts "rm -rf #{BASE}/#{w}"
-    `mkdir -p #{new_path}`
+    `mkdir -p '#{new_path}'`
     `touch #{new_path}/.keep`
     File.open("#{new_path}/data.json", "w").write(result.to_json)
   rescue => e

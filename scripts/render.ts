@@ -57,8 +57,12 @@ function mustachePreprocess(data: WordData): WordData {
 	data.example_sentences[i].type_translated = translatePartOfSpeech(data.example_sentences[i].type);
 	data.example_sentences[i].sentence = parseMarkdownBold(data.example_sentences[i].sentence)
     }
-    data.readability_explanation.text = parseMarkdownBold(data.readability_explanation.text);
-    data.usage_notes.explanation = parseMarkdownBold(data.usage_notes.explanation)
+    if (data.readability_explanation) {
+	data.readability_explanation.text = parseMarkdownBold(data.readability_explanation.text);
+    }
+    if (data.usage_notes) {
+	data.usage_notes.explanation = parseMarkdownBold(data.usage_notes.explanation)
+    }
     return data;
 }
 
@@ -66,13 +70,14 @@ export function render(data: WordData[]): string {
     return template.render(mustachePreprocess(data[0]));  // TODO: Handle multiple words data if exists.
 }
 
-export function renderNotfoundMessage(target: string, words: string[]): string {
+export function renderNotfoundMessage(target: string, words: {[key: string]: string}): string {
+    const sorted_words = Object.keys(words).sort();
     let result: string = `${target}は見つかりませんでした<br>`;
     result += '<div class="suggestions-container">\n'
     result += '<div class="suggestions-title">もしかして:</div>\n';
     result += '<div class="word-tags">\n'
-    for (let i = 0; i < words.length; i++) {
-	result += `<a href="?query=${words[i]}" class="word-tag">${words[i]}</a><br>`;
+    for (let i = 0; i < sorted_words.length; i++) {
+	result += `<a href="?query=${sorted_words[i]}" class="word-tag" title="${words[sorted_words[i]]}">${sorted_words[i]}</a><br>`;
     }
     result += '</div></div>';
     return result;

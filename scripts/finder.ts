@@ -24,14 +24,15 @@ export class Finder {
     }
 
     // Returns `count` of words which nears specified `key` in dictionary.
-    public async nearby(key: string, count: number): Promise<string[]> {
+    public async nearby(key: string, count: number): Promise<{[key: string]: string}> {
 	const _ = await this.find(key);  // Call this just for populate the cache.
-	const keys = Object.keys(this.cachedDictionary).sort();
-	const index = this.nearestIndex(key, keys);
-	console.log(`${keys} is ${keys.length}`)
-	console.log(`${Math.max(0, index - (count / 2))} ${index + (count / 2) + 1}`)
-	return keys.slice(Math.max(0, index - (count / 2)),
-			  index + (count / 2) + 1)
+	const near_keys = Object.keys(this.cachedDictionary).sort();
+	const index = this.nearestIndex(key, near_keys);
+	const keys = near_keys.slice(Math.max(0, index - (count / 2)),
+				index + (count / 2) + 1)
+	return Object.fromEntries(
+	    keys.map((key) => [key, this.cachedDictionary[key][0].meanings[0].definition])
+	)
     }
 
     // Returns single word data which exactly matches specified `key`.

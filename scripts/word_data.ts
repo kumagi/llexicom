@@ -5,6 +5,7 @@ interface Meanings {
     part_of_speech_translated: string;
     transitivity: string;
     transitivity_translated: string;
+    definition: string;
 };
 
 interface ExampleSentence {

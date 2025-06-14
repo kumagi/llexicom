@@ -161,11 +161,11 @@
   </section>
   {{/usage_notes}}
 
-  {{#common_mistakes}}
-  {{#examples}}
-  {{^empty}}
   <section class="section">
     <h2 class="section-title">よくある間違い</h2>
+    {{#common_mistakes}}
+    {{#examples}}
+    {{^empty}}
     {{#.}}
     <div class="mistake-item">
       <h4>間違い {{_index_plus_1}}:</h4>
@@ -174,10 +174,10 @@
       <p class="note-text"><strong>補足:</strong> {{note}}</p>
     </div>
     {{/.}}
+    {{/empty}}
+    {{/examples}}
+    {{/common_mistakes}}
   </section>
-  {{/empty}}
-  {{/examples}}
-  {{/common_mistakes}}
 
   {{#related_words}}
   {{#has_related_words}} {{! Helper to check if any of the sub-arrays exist }}
