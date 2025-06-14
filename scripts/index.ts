@@ -1,6 +1,6 @@
 import { Finder } from './finder'
 import { WordData } from './word_data';
-import { render, renderNotfoundMessage } from './render'
+import { render, renderNotfoundMessage, renderIndexSamples } from './render'
 
 const finder = new Finder();
 
@@ -60,6 +60,16 @@ const performSearchImpl = async (searchTerm: string) => {
     }
 };
 
+const fillSamples = async () => {
+    const samples = await finder.randomChoice(100);
+    const resultsContainer: Element | null = document.getElementById('results');
+    if (!resultsContainer) {
+	console.log("no container");
+	return;
+    }
+    resultsContainer.innerHTML = renderIndexSamples(samples);
+}
+
 function load() {
     const searchButton = document.getElementById('searchButton');
     searchButton?.addEventListener('click', () => {
@@ -78,6 +88,9 @@ function load() {
     if (searchInput instanceof HTMLInputElement && query !== null) {
 	searchInput.value = query;
 	performSearchImpl(query);
+    } else {
+	console.log("sample")
+	fillSamples();
     }
 };
 

@@ -35,6 +35,37 @@ export class Finder {
 	)
     }
 
+    public async randomChoice(count: number): Promise<{[key: string]: string}> {
+	const shuffled = [...this.table];
+	for (let i = shuffled.length - 1; i > 0; i--) {
+	    const j = Math.floor(Math.random() * (i + 1));
+	    [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+	}
+	const files = count / 10;
+	const src = shuffled.slice(0, files);
+	const promises = src.map((key) => this.find(key));
+	const results = await Promise.all(promises);
+
+	const usedIndices = new Set<number>();
+	const words: string[] = [];
+	const originalKeys = Object.keys(this.cachedDictionary)
+	while (words.length < count) {
+	    const index = Math.floor(Math.random() * originalKeys.length)
+	    if (usedIndices.has(index)) { continue; }
+	    if (!this.cachedDictionary[originalKeys[index]] ||
+		!this.cachedDictionary[originalKeys[index]][0].meanings) { continue; }
+	    usedIndices.add(index);
+	    words.push(originalKeys[index])
+	}
+	console.log(Object.fromEntries(
+	    words.map((key) => [key, this.cachedDictionary[key][0].meanings[0].definition])
+	))
+
+	return Object.fromEntries(
+	    words.map((key) => [key, this.cachedDictionary[key][0].meanings[0].definition])
+	)
+    }
+
     // Returns single word data which exactly matches specified `key`.
     // The `key` is case-insensitive.
     public async find(key: string): Promise<WordData[] | undefined> {
