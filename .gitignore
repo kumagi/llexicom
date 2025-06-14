@@ -6,3 +6,4 @@ keys.yml
 keys.json
 secret.json
 node_modules
+docs/js/*.js
