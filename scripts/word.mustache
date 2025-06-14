@@ -161,6 +161,7 @@
   </section>
   {{/usage_notes}}
 
+  {{#has_common_mistakes}}
   <section class="section">
     <h2 class="section-title">よくある間違い</h2>
     {{#common_mistakes}}
@@ -178,6 +179,7 @@
     {{/examples}}
     {{/common_mistakes}}
   </section>
+  {{/has_common_mistakes}}
 
   {{#related_words}}
   {{#has_related_words}} {{! Helper to check if any of the sub-arrays exist }}
@@ -225,6 +227,7 @@
   {{/has_related_words}}
   {{/related_words}}
 
+  {{#has_level_frequency}}
   {{#level_frequency}}
   <section class="section">
     <h2 class="section-title">レベル・頻度</h2>
@@ -236,7 +239,9 @@
     </dl>
   </section>
   {{/level_frequency}}
+  {{/has_level_frequency}}
 
+  {{#has_example_sentences}}
   <section class="section">
     <h2 class="section-title">追加例文</h2>
     <ul class="additional-example-list">
@@ -256,4 +261,5 @@
       {{/example_sentences}}
     </ul>
   </section>
+  {{/has_example_sentences}}
 </div>

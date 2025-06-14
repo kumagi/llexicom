@@ -4,7 +4,12 @@ import templateString from './word.mustache';
 
 const template = Hogan.compile(templateString);
 
-function parseMarkdownBold(text: string) {
+function parseMarkdownBold(text: string): string {
+    if (!text) {
+	return "";
+    }
+
+    
     return text.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
 }
 
