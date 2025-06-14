@@ -23,6 +23,23 @@ body {
     max-width: 660px;
 }
 
+.top {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    padding: 0px;
+    margin: 0px;
+    height: 55px;
+    overflow: clip;
+}
+
+.logo {
+    height: 50px;
+    cursor: pointer;
+}
+
 h1 {
     text-align: center;
     color: #333;
@@ -349,7 +366,6 @@ h1 {
 
 .related-column{ 
     flex: 1 1 calc(33.333% - 20px / 3 * 2); /* 3カラムにするための計算 */
-
 }
 
 .simple-list {
@@ -362,7 +378,6 @@ h1 {
     margin-bottom: 5px;
 }
 
-/* Usage Notes & Readability Explanation */
 .note-box, .readability-explanation {
     background-color: #e9ecef; /* light gray */
     border-left: 5px solid #6c757d; /* dark gray border */
@@ -524,14 +539,13 @@ h1 {
     }
 }
 
-/* bodyタグの代わりとなるコンテナのスタイル */
 .list-container {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
     background-color: #f4f7f9;
     color: #333;
     margin: 0;
     padding: 0px;
-    min-height: 100vh; /* 画面全体の高さを確保 */
+    min-height: 100vh;
 }
 
 h1 {
@@ -541,7 +555,7 @@ h1 {
 }
 
 .word-list {
-    list-style: none; /* リストの黒点を削除 */
+    list-style: none;
     padding: 0;
     margin: 0 auto;
     max-width: 800px;
@@ -565,14 +579,15 @@ h1 {
     border-bottom: none;
 }
 
-.word-list a:nth-child(odd) li {
+.word-list li:nth-child(odd) {
     background-color: #f8f9fa;
 }
 
-li:hover {
+.word-list li:hover {
     background-color: #e9ecef;
     transform: translateY(-2px);
     box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+    cursor: pointer;
 }
 
 .word-link {
@@ -583,18 +598,16 @@ li:hover {
     transition: color 0.2s ease;
 }
 
-.word-link:hover {
+.word-entry:hover {
     color: #0056b3;
     text-decoration: underline;
 }
 
-/* 日本語訳のスタイル */
 .word-translation {
     font-size: 1em;
     color: #555;
 }
 
-/* スマートフォン向けのレスポンシブ調整 */
 @media (max-width: 600px) {
     .list-container {
         padding: 0px;

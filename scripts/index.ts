@@ -14,8 +14,11 @@ const performSearch = () => {
     if (searchTerm === undefined) {
 	return;
     }
-    performSearchImpl(searchTerm);
+    performSearchAndPushHistory(searchTerm);
+}
 
+const performSearchAndPushHistory = (searchTerm: string) => {
+    performSearchImpl(searchTerm);
     const newUrl = `?query=${searchTerm}`;
     history.pushState({
 	query: searchTerm
@@ -39,18 +42,17 @@ const performSearchImpl = async (searchTerm: string) => {
 	return;
     } else {
         resultsContainer.innerHTML = render(data);
-	const meanings = document.getElementsByClassName("meaning-title");
-	for (let i = 0; i < meanings.length; i++) {
-	    meanings[i].addEventListener('click', (m) => {
+	const cards = document.getElementsByClassName("meaning-card");
+	for (const card of cards) {
+	    card.addEventListener('click', (m) => {
 		if (!(m.target instanceof HTMLElement)) {
 		    return;
 		}
-		const content = m.target.parentElement;
-		const body = content?.querySelector('.meaning-content');
+		const body = card.querySelector('.meaning-content')
 		if (body) {
 		    body.classList.toggle("visible");
 		}
-		const title = content?.querySelector('.meaning-title');
+		const title = card.querySelector('.meaning-title')
 		if (title) {
 		    title.classList.toggle("expand");
 		}
@@ -68,6 +70,17 @@ const fillSamples = async () => {
 	return;
     }
     resultsContainer.innerHTML = renderIndexSamples(samples);
+    const wordEntries = document.getElementsByClassName('word-entry');
+    for (const wordEntry of wordEntries) {
+	wordEntry.addEventListener('click', (event) => {
+	    const div = wordEntry.querySelector('div');
+	    if (div) {
+		const word = div.innerHTML;
+		performSearchAndPushHistory(word);
+	    }
+	    event.stopPropagation();
+	}, true)
+    }
 }
 
 function load() {
@@ -82,6 +95,14 @@ function load() {
 	    performSearch();
 	}
     });
+
+    const logo = document.getElementById('logo');
+    logo?.addEventListener('click', () => {
+	history.pushState({
+	    query: undefined
+	}, '', location.pathname);
+	fillSamples();
+    });
     
     const params = new URLSearchParams(window.location.search);
     const query = params.get('query');
@@ -89,7 +110,6 @@ function load() {
 	searchInput.value = query;
 	performSearchImpl(query);
     } else {
-	console.log("sample")
 	fillSamples();
     }
 };
@@ -102,8 +122,12 @@ window.addEventListener('popstate', (event) => {
     const searchInput = document.getElementById('searchInput');
     if (event.state && searchInput instanceof HTMLInputElement) {
 	const query = event.state.query || '';
-	searchInput.value = query;
-	performSearchImpl(query);
+	if (!query) {
+	    fillSamples();
+	} else {
+	    searchInput.value = query;
+	    performSearchImpl(query);
+	}
     } else {
 	load();
     }

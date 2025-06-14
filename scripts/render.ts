@@ -38,6 +38,12 @@ function translatePartOfSpeech(pos: string): string {
 	case "interjection":
 	    return "間投詞";
     }
+    if (pos.startsWith("verb")) {
+	return "動詞 (変化)";
+    }
+    if (pos.startsWith("adjective")) {
+	return "形容詞";
+    }
     console.log(pos);
     return "Unknown";
 }
@@ -57,7 +63,9 @@ function mustachePreprocess(data: WordData): WordData {
     if (data.meanings) {
 	for (let i = 0; i < data.meanings.length; i++) {
 	    data.meanings[i].index_plus_1 = i + 1;
-	    data.meanings[i].part_of_speech_translated = translatePartOfSpeech(data.meanings[i].part_of_speech);
+	    if (data.meanings[i].part_of_speech) {
+		data.meanings[i].part_of_speech_translated = translatePartOfSpeech(data.meanings[i].part_of_speech);
+	    }
 	    if (data.meanings[i].transitivity) {
 		data.meanings[i].transitivity_translated = translateTransitivity(data.meanings[i].transitivity);
 	    }
@@ -65,8 +73,12 @@ function mustachePreprocess(data: WordData): WordData {
     }
     if (data.example_sentences) {
 	for (let i = 0; i < data.example_sentences.length; i++) {
-	    data.example_sentences[i].type_translated = translatePartOfSpeech(data.example_sentences[i].type);
-	    data.example_sentences[i].sentence = parseMarkdownBold(data.example_sentences[i].sentence)
+	    if (data.example_sentences[i].type) {
+		data.example_sentences[i].type_translated = translatePartOfSpeech(data.example_sentences[i].type);
+	    }
+	    if (data.example_sentences[i].sentence) {
+		data.example_sentences[i].sentence = parseMarkdownBold(data.example_sentences[i].sentence)
+	    }
 	}
     }
     if (data.readability_explanation) {
@@ -100,8 +112,8 @@ export function renderIndexSamples(words: {[key: string]: string}): string {
     let result: string = '<div class="list-container">\n'
     result += '<ul class="word-list">\n'
     for (let i = 0; i < keys.length; i++) {
-	result += `<a href="?query=${keys[i]}" class="word-link" title="${words[keys[i]]}"><li>${keys[i]}`;
-	result += `<span class="word-translation">${words[keys[i]]}</span></li></a>`;
+	result += `<li class="word-entry" title="${keys[i]}"><div class="word-link">${keys[i]}</div>`;
+	result += `<span class="word-translation">${words[keys[i]]}</span></li>`;
     }
     result += '</ul></div>';
     return result;

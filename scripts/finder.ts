@@ -57,10 +57,6 @@ export class Finder {
 	    usedIndices.add(index);
 	    words.push(originalKeys[index])
 	}
-	console.log(Object.fromEntries(
-	    words.map((key) => [key, this.cachedDictionary[key][0].meanings[0].definition])
-	))
-
 	return Object.fromEntries(
 	    words.map((key) => [key, this.cachedDictionary[key][0].meanings[0].definition])
 	)
