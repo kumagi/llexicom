@@ -16,11 +16,11 @@ body {
     box-sizing: border-box;
     padding: 20px;
     margin: 10px;
-    width: 660px;
+    min-width:350px;
     display: flex;
     gap: 12px;
     flex-direction: column;
-    max-width: 660px;
+    max-width: 100%;
 }
 
 .top {
@@ -32,12 +32,15 @@ body {
     padding: 0px;
     margin: 0px;
     height: 55px;
+    max-width: 100%;
     overflow: clip;
 }
 
 .logo {
     height: 50px;
+    min-width: 120px;
     cursor: pointer;
+    flex-shrink: 1;
 }
 
 h1 {
@@ -49,24 +52,18 @@ h1 {
 }
 
 .search-box {
-    display: flex;
-    flex-direction: row;
-    gap: 10px;
+    min-width: 100px;
     align-items: center;
     justify-content: center;
 }
 
 #searchInput {
-    flex-grow: 1;
-    min-width: 300px;
     max-width: 400px;
     padding: 12px 18px;
     border: 1px solid #ddd;
     border-radius: 8px;
     font-size: 1.1em;
     outline: none;
-    min-width: 200px;
-    max-width: 50%;
     height: 30px;
     transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
@@ -498,47 +495,6 @@ h1 {
     color: #004b99;
 }
 
-@media (max-width: 480px) {
-    .container {
-	margin: 4px 4px;
-	padding: 10px;
-    }
-    h1 {
-	font-size: 2.2rem;
-    }
-    h2 {
-	font-size: 1.8rem;
-    }
-    h3 {
-	font-size: 1.3rem;
-    }
-    h4 {
-	font-size: 1.1rem;
-    }
-    .header-section {
-	flex-direction: column;
-	align-items: flex-start;
-    }
-    .priority {
-	margin-top: 10px;
-	font-size: 1.2rem;
-    }
-    .related-terms-group {
-	flex-direction: column;
-	gap: 15px;
-    }
-    .section {
-	min-height: 30px;
-    }
-    .meaning-tile {
-	height: 
-    }
-    .related-column {
-	min-width: unset; /* Remove min-width for small screens */
-	width: 100%;
-    }
-}
-
 .list-container {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
     background-color: #f4f7f9;
@@ -558,7 +514,7 @@ h1 {
     list-style: none;
     padding: 0;
     margin: 0 auto;
-    max-width: 800px;
+    max-width: 660px;
     border-radius: 8px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
     overflow: hidden; /* 角丸を有効にするため */
@@ -608,9 +564,72 @@ h1 {
     color: #555;
 }
 
-@media (max-width: 600px) {
+
+
+@media (max-width: 480px) {
+    .container {
+	margin: 4px 4px;
+	padding: 10px;
+    }
+    h1 {
+	font-size: 2.2rem;
+    }
+    h2 {
+	font-size: 1.8rem;
+    }
+    h3 {
+	font-size: 1.3rem;
+    }
+    h4 {
+	font-size: 1.1rem;
+    }
+    .header-section {
+	flex-direction: column;
+	align-items: flex-start;
+    }
+    .priority {
+	margin-top: 10px;
+	font-size: 1.2rem;
+    }
+    .related-terms-group {
+	flex-direction: column;
+	gap: 15px;
+    }
+    .section {
+	min-height: 30px;
+    }
+    .meaning-tile {
+	height: 
+    }
+    .related-column {
+	min-width: unset; /* Remove min-width for small screens */
+	width: 100%;
+    }
+
+    .top {
+	height: 50px;
+	overflow: hidden;
+    }
     .list-container {
         padding: 0px;
+	height: 20px;
+    }
+    .logo {
+	width: 100px;
+	height: auto;
+	min-width: 100px;
+	transform: scale(1);
+	position: relative;e
+    }
+    #searchInput {
+	height: 20px;
+    }
+    #searchButton {
+	min-width: 40px;
+	width: 40px;
+	padding: 0px;
+	margin: 4px;
+	font: 0.4em;
     }
     .word-list li {
         padding: 8px;

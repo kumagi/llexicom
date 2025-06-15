@@ -75,5 +75,5 @@ end
 
 if __FILE__ == $PROGRAM_NAME
   cli = GemmaClient.new()
-  pp cli.prompt("big")
+  pp cli.prompt("uprest")
 end

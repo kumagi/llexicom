@@ -67,7 +67,7 @@ export class Finder {
     public async find(key: string): Promise<WordData[] | undefined> {
 	const canonical_key = key.toLowerCase()
 	if (this.cachedDictionary[canonical_key]) {
-	    console.log(`cache hit for ${canonical_key}`)
+	    console.log(`cache hit for ${canonical_key} out of ${Object.keys(this.cachedDictionary).length}`)
 	    return this.cachedDictionary[canonical_key];
 	}
 	try {
