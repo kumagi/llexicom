@@ -40,25 +40,23 @@ def build(client_constructor, parallels = 30)
           decoded_word = decode_filename(word)
           next if File.exist?(dest)
           begin
-            
             data = cli.prompt(decoded_word)
-            if data['word'].nil?
+            if data['word'].nil? || data['word'].empty?
               raise RuntimeException
             end
             if data['word'] != decoded_word
               puts "#{decoded_word} vs #{data['word']} unmatch"
               new_path = "#{BASE}/#{encode_filename(data['word'])}"
               unless File.exist?("#{new_path}/data.json")
-                `mkdir -p '#{new_path}'`
-                `touch '#{new_path}/.keep'`
+                FileUtils.mkdir_p(new_path)
+                FileUtils.touch("#{new_path}/.keep")
                 File.open("#{new_path}/data.json", "w").write(data.to_json)
                 puts "wrote #{new_path}"
               end
-              `rm -rf '#{BASE}/#{word}'`
+              FileUtils.rm_rf("#{BASE}/#{word}")
               corrected[decoded_word] = data['word'] if data['word']
               next
             end
-
             File.open(dest, "w").write(data.to_json)
             puts "fetched #{word}"
           rescue => e

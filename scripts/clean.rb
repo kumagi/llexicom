@@ -33,19 +33,19 @@ exists.each{|w|
         puts "valid content already exists in #{content['word']}"
       rescue => e
         puts "something wrong with #{new_datafile} #{e}"
-        `mkdir -p '#{new_path}'`
+        Fileutils.mkdir_p(new_path)
         File.open(new_datafile, "w").write(result.to_json)
         puts "replaced #{new_datafile} with content of #{filename}"
       end
     end
     puts "#{w} should be stored #{correct_filename}"
-    `rm -rf '#{BASE}/#{w}'`
+    FileUtils.rm_rf("#{BASE}/#{w}")
     puts "rm -rf '#{BASE}/#{w}'"
-    `mkdir -p '#{new_path}'`
-    `touch '#{new_path}/.keep'`
+    FileUtils.mkdir_p(new_path)
+    FileUtils.touch("#{new_path}/.keep")
     File.open("#{new_path}/data.json", "w").write(result.to_json)
   rescue => e
     puts "cannot read #{w} #{e} #{File.open(filename).read.size}"
-    `rm -rf '#{filename}'`
+    FileUtils.rm_rf(filename)
   end
 }
