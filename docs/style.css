@@ -20,7 +20,7 @@ body {
     display: flex;
     gap: 12px;
     flex-direction: column;
-    max-width: 100%;
+    max-width: 660px;
 }
 
 .top {
