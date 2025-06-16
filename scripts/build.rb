@@ -12,7 +12,6 @@ CORRECTED="corrected.json"
 BASE="dict/en/ja"
 
 def build(client_constructor, parallels = 30)
-
   all = Dir.glob("*", base: BASE).sort
   words = all.reject {|w|
     File.exist?("#{BASE}/#{w}/data.json")
@@ -37,25 +36,30 @@ def build(client_constructor, parallels = 30)
           word = words.pop
 
           retried = 0
+          dest = "#{BASE}/#{word}/data.json"
+          decoded_word = decode_filename(word)
+          next if File.exist?(dest)
           begin
-            dest = "#{BASE}/#{word}/data.json"
-            next if File.exist?(dest)
-            decoded_word = decode_filename(word)
+            
             data = cli.prompt(decoded_word)
+            if data['word'].nil?
+              raise RuntimeException
+            end
             if data['word'] != decoded_word
               puts "#{decoded_word} vs #{data['word']} unmatch"
               new_path = "#{BASE}/#{encode_filename(data['word'])}"
               unless File.exist?("#{new_path}/data.json")
                 `mkdir -p '#{new_path}'`
-                `touch #{new_path}/.keep`
+                `touch '#{new_path}/.keep'`
                 File.open("#{new_path}/data.json", "w").write(data.to_json)
                 puts "wrote #{new_path}"
               end
-              `rm -rf #{BASE}/#{word}`
+              `rm -rf '#{BASE}/#{word}'`
               corrected[decoded_word] = data['word'] if data['word']
               next
             end
-            File.open("#{BASE}/#{word}/data.json", "w").write(data.to_json)
+
+            File.open(dest, "w").write(data.to_json)
             puts "fetched #{word}"
           rescue => e
             pp e

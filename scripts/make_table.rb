@@ -6,3 +6,4 @@ index = Dir.glob("*", base: "docs").map{|m|
 }.reject{|n| n.nil? }
 
 File.open("scripts/table.ts", "w").write("exports.table = #{index.to_json};")
+puts "generate table with #{index.size} files"
