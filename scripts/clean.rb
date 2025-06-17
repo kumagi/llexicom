@@ -1,4 +1,5 @@
 require 'json'
+require 'fileutils'
 
 BASE="dict/en/ja"
 words = Dir.glob("*", base: BASE).sort

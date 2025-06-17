@@ -1,4 +1,5 @@
 require 'json'
+require 'fileutils'
 
 def encode_filename(word)
   word.gsub(/[A-Z]/) { |c| "_#{c}_" }

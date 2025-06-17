@@ -615,20 +615,21 @@ h1 {
 	height: 20px;
     }
     .logo {
-	width: 100px;
+	width: 90px;
 	height: auto;
-	min-width: 100px;
+	min-width: 90px;
 	transform: scale(1);
 	position: relative;e
     }
     #searchInput {
 	height: 20px;
+	width: 120px;
     }
     #searchButton {
-	min-width: 40px;
-	width: 40px;
+	min-width: 50px;
+	width: 50px;
+	height: 45px;
 	padding: 0px;
-	margin: 4px;
 	font: 0.4em;
     }
     .word-list li {
