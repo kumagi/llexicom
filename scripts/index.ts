@@ -39,7 +39,6 @@ const performSearchImpl = async (searchTerm: string) => {
     if (data === undefined) {
 	const candidates = await finder.nearby(searchTerm, 100);
         resultsContainer.innerHTML = renderNotfoundMessage(searchTerm, candidates);
-	return;
     } else {
         resultsContainer.innerHTML = render(data);
 	const cards = document.getElementsByClassName("meaning-card");
@@ -66,7 +65,6 @@ const fillSamples = async () => {
     const samples = await finder.randomChoice(100);
     const resultsContainer: Element | null = document.getElementById('results');
     if (!resultsContainer) {
-	console.log("no container");
 	return;
     }
     resultsContainer.innerHTML = renderIndexSamples(samples);
@@ -79,6 +77,12 @@ const fillSamples = async () => {
 		performSearchAndPushHistory(word);
 	    }
 	    event.stopPropagation();
+	    console.log("clidked word");
+	    window.scrollTo({
+		top: 0,
+		left: 0,
+		behavior: 'smooth'
+	    })
 	}, true)
     }
 }

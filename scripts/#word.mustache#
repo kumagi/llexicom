@@ -148,7 +148,7 @@
       <dt>現在形</dt>
       <dd>{{present_simple_joined}}</dd>
       <dt>過去形</dt>
-      <dd>{{past_simple}}</dd>
+      <dd>{{past}}</dd>
       <dt>過去分詞</dt>
       <dd>{{past_participle}}</dd>
       <dt>現在分詞</dt>

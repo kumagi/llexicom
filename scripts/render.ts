@@ -69,9 +69,9 @@ function mustachePreprocess(data: WordData): WordData {
 		data.meanings[i].transitivity_translated = translateTransitivity(data.meanings[i].transitivity);
 	    }
 
-	    data.meanings[i].has_collocations = !!data.meanings[i].collocations;
-	    data.meanings[i].has_synonyms = !!data.meanings[i].synonyms;
-	    data.meanings[i].has_antonyms = !!data.meanings[i].antonyms;
+	    data.meanings[i].has_collocations = (data.meanings[i].collocations && data.meanings[i].collocations.length > 0);
+	    data.meanings[i].has_synonyms = (data.meanings[i].synonyms && data.meanings[i].synonyms.length > 0);
+	    data.meanings[i].has_antonyms = (data.meanings[i].antonyms && data.meanings[i].antonyms.length > 0);
 	}
     }
     if (data.example_sentences) {
@@ -90,12 +90,14 @@ function mustachePreprocess(data: WordData): WordData {
     if (data.usage_notes) {
 	data.usage_notes.explanation = parseMarkdownBold(data.usage_notes.explanation)
     }
+    if (data.related_words) {
+	data.related_words.has_derivatives = !!data.related_words.derivatives;
+	data.related_words.has_idioms_phrases = !!data.related_words.idioms_phrases;
+	data.related_words.has_phrasal_verbs = !!data.related_words.has_phrasal_verbs;
+    }
 
-    data.related_words.has_derivatives = !!data.related_words.derivatives;
-    data.related_words.has_idioms_phrases = !!data.related_words.idioms_phrases;
-    data.related_words.has_phrasal_verbs = !!data.related_words.has_phrasal_verbs;
-
-    data.has_inflection_forms = !!data.inflection;
+    data.has_inflection_forms = !!data.inflection && (!!data.inflection.noun_plural ||
+	!!data.inflection.verb_forms);
     data.has_related_words = !!data.related_words;
     data.has_example_sentences = !!data.example_sentences;
     
