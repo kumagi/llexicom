@@ -1,0 +1,63 @@
+# Migration Plan: Hogan.js to Next.js
+
+This document outlines the plan to migrate the llexicom project from its current Hogan.js and custom TypeScript implementation to a modern Next.js and React-based architecture.
+
+## Current Architecture Analysis
+
+Based on the review of `package.json`, `webpack.config.js`, `scripts/finder.ts`, and the overall project structure, the current system is understood as follows:
+
+-   **Frontend:** A single-page application built with TypeScript and Hogan.js for templating.
+-   **Bundling:** Webpack is used to compile `scripts/index.ts` and its dependencies into a single `docs/js/app.js` file.
+-   **Core Logic (`scripts/finder.ts`):** The application's core is a sophisticated client-side search mechanism.
+    -   It uses a pre-computed index (`table.js`) to perform a binary search for dictionary entries.
+    -   To retrieve a word's definition, it fetches a small, compressed data chunk (`.json.lz`) from the `dict/en/ja/` directory.
+    -   It uses the browser's `DecompressionStream` API to decompress the data on-the-fly.
+    -   It caches the fetched and decompressed dictionary chunks in memory to optimize subsequent lookups.
+-   **Deployment:** The entire application is a set of static files served from the `docs/` directory.
+
+This architecture is highly efficient for a static dictionary, minimizing initial load times and network requests. The migration plan aims to preserve these performance characteristics.
+
+## Migration Goals
+
+1.  **Modernize the Tech Stack:** Replace the legacy Hogan.js templating with React and Next.js for a better development experience, improved maintainability, and access to the modern React ecosystem.
+2.  **Preserve Core Performance:** Keep the efficient client-side binary search and on-demand data fetching logic.
+3.  **Maintain Static Deployment:** The final output must be a set of static HTML, CSS, and JavaScript files that can be hosted on any static web host.
+
+## Revised Migration Plan
+
+### Phase 1: Project Setup and Foundation (Low Difficulty)
+
+1.  **Initialize Next.js:**
+    -   A new Next.js project will be created within the repository (`npx create-next-app@latest --typescript`).
+    -   Existing configurations (TypeScript, linting) will be merged to ensure consistency.
+2.  **Static Asset Relocation:**
+    -   The `dict/en/ja/` directory containing all compressed dictionary files (`*.json.lz`) will be moved into the `public/` directory of the Next.js project. This makes them directly fetchable by the client-side code.
+    -   The `table.js` index file will be identified and moved into the new application structure to be imported by the search logic.
+
+### Phase 2: Logic Migration (Medium Difficulty)
+
+3.  **Refactor `Finder` to a React Hook:**
+    -   The `Finder` class will be refactored into a custom React hook (e.g., `useDictionary`). This is the idiomatic way to manage state and side-effects in React applications.
+    -   The hook will encapsulate the dictionary logic:
+        -   State management for the `cachedDictionary` using `useState` and `useRef`.
+        -   The `find`, `nearby`, and `randomChoice` methods will be adapted to work within the React component lifecycle, wrapped in `useCallback` for optimization.
+    -   The core data fetching and decompression logic using `fetch` and `DecompressionStream` will be preserved with minimal changes.
+
+### Phase 3: UI Migration (Medium-High Difficulty)
+
+4.  **Convert Mustache Templates to React Components:**
+    -   All `.mustache` template files will be identified.
+    -   Each template will be manually rewritten as a React component (`.tsx`) using JSX. This is the most labor-intensive part of the migration.
+    -   These new components will be organized in a `components/` directory.
+5.  **Create the Main Application Page:**
+    -   A primary Next.js page (e.g., `pages/index.tsx`) will be created to serve as the main user interface.
+    -   This page will utilize the `useDictionary` hook to fetch and display data.
+    -   It will include the search input field, handle user interactions, and render the dictionary entries using the newly created React components.
+
+### Phase 4: Build and Deployment (Low Difficulty)
+
+6.  **Configure Static Export:**
+    -   The `next.config.js` file will be configured for static site generation by setting the `output: 'export'` option.
+7.  **Build and Deploy:**
+    -   The `next build` command will be run to generate the final, optimized static assets.
+    -   The resulting `out/` directory will contain the complete static application. This directory will replace the old `docs/` directory, completing the migration.
