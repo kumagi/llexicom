@@ -7,3 +7,4 @@ keys.json
 secret.json
 node_modules
 docs/js/*.js
+webapp/out/*

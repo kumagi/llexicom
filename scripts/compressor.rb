@@ -46,7 +46,7 @@ targets.each_slice(100) {|batch|
       result
     }
     first_word = json.keys.reject{|n| n.nil?}.sort[0]
-    File.open("docs/#{first_word}.json.lz", "w").write(Zlib::Deflate.deflate(json.to_json))
+    File.open("webapp/out/dict/#{first_word}.json.lz", "w").write(Zlib::Deflate.deflate(json.to_json))
   rescue => e
     pp e
   end
